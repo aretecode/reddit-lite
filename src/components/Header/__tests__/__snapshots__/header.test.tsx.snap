@@ -3,8 +3,6 @@
 exports[`Header should match export snapshot 1`] = `
 Object {
   "Header": [Function],
-  "StyledAccountButton": undefined,
-  "StyledButton": undefined,
   "StyledHeader": Object {
     "$$typeof": Symbol(react.forward_ref),
     "attrs": Array [
