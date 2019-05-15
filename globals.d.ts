@@ -23,6 +23,8 @@ declare namespace NodeJS {
   interface ProcessEnv {
     NODE_ENV: 'test' | 'development' | 'production'
     IS_NOW: 'true' | 'false' | undefined
+    READONLY: 'true' | 'false' | undefined
+    GRAPHQL_API_URL: string
   }
   interface Process {
     browser: boolean
