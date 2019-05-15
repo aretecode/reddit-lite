@@ -42,7 +42,10 @@ export const StyledAuthorLink = styled(StyledLink)`
   color: rgb(120, 124, 126);
   margin-left: 0.25rem;
 `
-export const StyledCommentsButton = styled.button`
+/**
+ * accessibility wise, this would be a button if we had a modal
+ */
+export const StyledCommentsLink = styled(StyledLink)`
   color: rgb(120, 124, 126);
   margin-left: 0.25rem;
 `

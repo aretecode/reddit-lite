@@ -9,7 +9,7 @@ import {
   StyledPostedBy,
   StyledAuthorLink,
   StyledTitle,
-  StyledCommentsButton,
+  StyledCommentsLink,
   StyledDateTime,
   StyledFontAwesomeIcon,
   StyledControlArea,
@@ -17,9 +17,11 @@ import {
   StyledPostDateGroup,
 } from './styled'
 
-export default class Post extends React.PureComponent<PostProps & {item: RedditLitePostItemType}> {
+export default class Post extends React.PureComponent<
+  PostProps & { item: RedditLitePostItemType }
+> {
   render() {
-    const {item = EMPTY_OBJ, ...remainingProps} = this.props
+    const { item = EMPTY_OBJ, ...remainingProps } = this.props
     const {
       title,
       body,
@@ -29,9 +31,8 @@ export default class Post extends React.PureComponent<PostProps & {item: RedditL
       createdAtPretty,
       commentCount,
       imageUrl,
+      url,
     } = item
-
-    console.log(item)
 
     return (
       <StyledCardArticle {...remainingProps}>
@@ -42,7 +43,9 @@ export default class Post extends React.PureComponent<PostProps & {item: RedditL
 
         <StyledPostDateGroup>
           <StyledPostedBy>Posted by</StyledPostedBy>
-          <StyledAuthorLink to={'https://www.reddit.com/user/' + authorFullName}>
+          <StyledAuthorLink
+            to={`https://www.reddit.com/user/${authorFullName}`}
+          >
             {authorFullName}
           </StyledAuthorLink>
           <StyledDateTime dateTime={createdAtIso} title={createdAtIso}>
@@ -55,10 +58,10 @@ export default class Post extends React.PureComponent<PostProps & {item: RedditL
             title="expand icon for description... or link to image"
             icon={faExpand}
           />
-          <StyledCommentsButton>
+          <StyledCommentsLink to={`${url}`}>
             <StyledFontAwesomeIcon icon={faComment} />
             {commentCount} comments
-          </StyledCommentsButton>
+          </StyledCommentsLink>
         </StyledControlArea>
       </StyledCardArticle>
     )
