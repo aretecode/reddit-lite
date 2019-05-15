@@ -7,7 +7,7 @@
   "scripts": {
     "dev": "next",
     "dev:storybook": "start-storybook -p 9001 -c .storybook",
-    "build": "rm -fr .next && next build && yarn copy",
+    "build": "rm -fr .next && next build",
     "start": "next start",
     "test": "jest",
     "test:dev": "jest --config jest.config.js",
