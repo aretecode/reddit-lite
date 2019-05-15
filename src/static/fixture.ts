@@ -1,3 +1,4 @@
+// tslint:disable:no-null-keyword
 export const fixtureResponse = {
   kind: 'Listing',
   data: {
@@ -97,7 +98,8 @@ export const fixtureResponse = {
           mod_reports: [],
           author_patreon_flair: false,
           author_flair_text_color: 'dark',
-          permalink: '/r/vancouver/comments/bjcurx/may_events_and_volunteering_thread_please_post/',
+          permalink:
+            '/r/vancouver/comments/bjcurx/may_events_and_volunteering_thread_please_post/',
           parent_whitelist_status: 'all_ads',
           stickied: true,
           url:
@@ -275,7 +277,8 @@ export const fixtureResponse = {
           mod_reason_title: null,
           gilded: 0,
           clicked: false,
-          title: 'Extensive bus-only lanes coming to 41st Avenue for new B-Line rapid bus',
+          title:
+            'Extensive bus-only lanes coming to 41st Avenue for new B-Line rapid bus',
           link_flair_richtext: [],
           subreddit_name_prefixed: 'r/vancouver',
           hidden: false,
@@ -407,7 +410,8 @@ export const fixtureResponse = {
             '/r/vancouver/comments/boijsv/extensive_busonly_lanes_coming_to_41st_avenue_for/',
           parent_whitelist_status: 'all_ads',
           stickied: false,
-          url: 'https://dailyhive.com/vancouver/41st-avenue-b-line-street-changes-route',
+          url:
+            'https://dailyhive.com/vancouver/41st-avenue-b-line-street-changes-route',
           subreddit_subscribers: 126462,
           created_utc: 1557838404.0,
           media: null,
