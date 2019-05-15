@@ -4,15 +4,11 @@
  */
 import * as React from 'react'
 import { StyledTime } from './styled'
-import { DateTimeBaseProps } from './typings'
-
-export type DateTimeProps = DateTimeBaseProps &
-  React.TimeHTMLAttributes<any> &
-  React.ComponentProps<typeof StyledTime>
+import { DateTimeProps } from './typings'
 
 export class DateTime extends React.PureComponent<DateTimeProps> {
   render() {
-    const {dateTime, children, ...remainingProps} = this.props
+    const { dateTime, children, ...remainingProps } = this.props
     return (
       <StyledTime dateTime={dateTime} {...remainingProps}>
         {children}
