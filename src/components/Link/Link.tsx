@@ -6,24 +6,21 @@ import * as React from 'react'
  */
 import BaseLink from 'next/link'
 import styled from 'styled-components'
-
-export type LinkProps = React.HTMLAttributes<HTMLAnchorElement> & {
-  to?: string
-  href?: string
-  rel?: string
-}
+import { LinkProps } from './typings'
 
 export const StyledHref = styled.a``
 
-export class DynamicLink extends React.PureComponent<LinkProps & {theme?: any}> {
+export class DynamicLink extends React.PureComponent<
+  LinkProps & { theme?: any }
+> {
   render() {
-    const {to, href, theme, ...remainingProps} = this.props
+    const { to, href, theme, ...remainingProps } = this.props
     const toHref = (to || href || '') as string
 
     if (toHref.includes('http')) {
       return <a {...remainingProps} href={toHref} />
     } else {
-      const {children, ...remaining} = remainingProps
+      const { children, ...remaining } = remainingProps
       return (
         <BaseLink href={toHref}>
           <StyledHref {...remaining} href={toHref}>
@@ -46,5 +43,3 @@ export const StyledLink = styled(DynamicLink)`
     -webkit-tap-highlight-color: rgba(102, 102, 102, 0.5);
   }
 `
-
-export type StyledLinkProps = React.ComponentProps<typeof StyledLink>

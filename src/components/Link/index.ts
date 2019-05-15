@@ -1,1 +1,2 @@
-export { LinkProps, StyledHref, DynamicLink, StyledLink, StyledLinkProps } from './Link'
+export { StyledHref, DynamicLink, StyledLink } from './Link'
+export * from './typings'
