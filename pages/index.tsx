@@ -1,6 +1,8 @@
 import * as React from 'react'
 import styled from 'styled-components'
 import { Post } from '../src/components/Post'
+import { fixtureResponse } from '../src/static/fixture'
+import { fromResponseToPostList } from '../src/graphql/transform'
 
 export const StyledPostList = styled.ul`
   padding: 1rem;
@@ -21,20 +23,22 @@ export const StyledMain = styled.main`
   display: flex;
 `
 
-export default () => (
-  <>
-    <StyledMain>
-      <StyledPostList>
-        <li>
-          <Post />
-        </li>
-        <li>
-          <Post />
-        </li>
-        <li>
-          <Post />
-        </li>
-      </StyledPostList>
-    </StyledMain>
-  </>
-)
+export default () => {
+  const posts = fromResponseToPostList(fixtureResponse as any)
+
+  return (
+    <>
+      <StyledMain>
+        <StyledPostList>
+          {posts.map(post => {
+            return (
+              <li key={post.id}>
+                <Post item={post} />
+              </li>
+            )
+          })}
+        </StyledPostList>
+      </StyledMain>
+    </>
+  )
+}
