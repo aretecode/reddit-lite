@@ -89,6 +89,7 @@ yarn dev
   - `__tests__` with jest unit tests (_at least a `snapshot` test of exports &| render_)
   - `styled.ts` elements used by other components, and styled() wrappings of components for use in easy styling
   - `renderProps.tsx` if any renderProps exist, they are here
+  - `typings` typescript interfaces & typings if they exist
 
 ## Learn More
 
