@@ -1,8 +1,18 @@
 import { gql } from 'apollo-boost'
 
 export default gql`
-  query RedditPosts($subReddit: String, $before: String, $after: String) {
-    posts(subReddit: $subReddit, before: $before, after: $after) {
+  query RedditPosts(
+    $subReddit: String
+    $before: String
+    $after: String
+    $limit: Int = 1
+  ) {
+    posts(
+      subReddit: $subReddit
+      before: $before
+      after: $after
+      limit: $limit
+    ) {
       before
       after
       list {
