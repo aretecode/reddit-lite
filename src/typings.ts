@@ -305,6 +305,18 @@ export type RedditLitePostKindType = 'text' | 'link' | 'url' | ''
 export interface RedditLitePostItemType {
   id: string
   postKind: RedditLitePostKindType
+
+  /**
+   * ISO-8601 format
+   */
+  createdAtIso: string
+  createdAtUtc: number | string
+  /**
+   * @example
+   *   13 days ago
+   */
+  createdAtPretty: string
+
   title: string
   /**
    * body of the post
@@ -341,4 +353,9 @@ export interface RedditLitePostItemType {
    * total comments
    */
   commentCount: number
+
+  /**
+   * currently not doing overly complicated images
+   */
+  imageUrl: string
 }
