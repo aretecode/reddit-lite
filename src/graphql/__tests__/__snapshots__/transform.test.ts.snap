@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`graphql transform should safely trannsform our response 1`] = `
+exports[`graphql transform should safely transform our response 1`] = `
 Array [
   Object {
     "authorFlairText": "google searches for you",
@@ -22,12 +22,48 @@ Sort the comments below BY NEW to see the latest events
 
 [April Events Thread](https://www.reddit.com/r/vancouver/comments/b5dlhh/april_events_and_volunteering_thread_please_post/)",
     "commentCount": 50,
+    "createdAtIso": "2019-04-30T20:55:32-0700",
+    "createdAtPretty": "14 days",
+    "createdAtUtc": 1556682932,
     "id": "bjcurx",
+    "imageUrl": "",
     "isSticky": true,
     "postKind": "text",
     "score": 23,
     "title": "May Events and Volunteering Thread. Please post your upcoming events and volunteering opportunities here.",
     "url": "https://reddit.com/r/vancouver/comments/bjcurx/may_events_and_volunteering_thread_please_post/",
+  },
+  Object {
+    "authorFlairText": "",
+    "authorFullName": "t2_fhc4s",
+    "body": "",
+    "commentCount": 97,
+    "createdAtIso": "2019-05-14T07:52:29-0700",
+    "createdAtPretty": "about 12 hours",
+    "createdAtUtc": 1557845549,
+    "id": "bojx2w",
+    "imageUrl": "https://b.thumbs.redditmedia.com/2fNRoJSzaYCxg_wBJJYcmAdqD5sZnWk0sRUN1YVM-RM.jpg",
+    "isSticky": false,
+    "postKind": "image",
+    "score": 301,
+    "title": "Spotted in Coquitlam this morning . Be careful out there",
+    "url": "https://reddit.com/r/vancouver/comments/bojx2w/spotted_in_coquitlam_this_morning_be_careful_out/",
+  },
+  Object {
+    "authorFlairText": "",
+    "authorFullName": "t2_s9mls",
+    "body": "",
+    "commentCount": 60,
+    "createdAtIso": "2019-05-14T05:53:24-0700",
+    "createdAtPretty": "about 14 hours",
+    "createdAtUtc": 1557838404,
+    "id": "boijsv",
+    "imageUrl": "https://b.thumbs.redditmedia.com/dhYQ706l8zOp01lkS4MntVLQaV8TrgQf31UTI_LwDjU.jpg",
+    "isSticky": false,
+    "postKind": "link",
+    "score": 189,
+    "title": "Extensive bus-only lanes coming to 41st Avenue for new B-Line rapid bus",
+    "url": "https://reddit.com/r/vancouver/comments/boijsv/extensive_busonly_lanes_coming_to_41st_avenue_for/",
   },
 ]
 `;
