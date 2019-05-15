@@ -4,7 +4,7 @@
 import * as React from 'react'
 import { render, waitForElement } from 'react-testing-library'
 import { InnerApp } from '../pages/_app'
-import DefaultPage from '../pages/'
+import DefaultPage from '../pages/index'
 
 const sleep = async (time: number) => Promise.resolve(time)
 
