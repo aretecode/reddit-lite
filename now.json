@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "name": "modern-stack-starter",
+  "name": "reddit-lite",
   "env": {
     "IS_NOW": "true",
     "STYLIS_SHOULD_PREFIX": "false"
