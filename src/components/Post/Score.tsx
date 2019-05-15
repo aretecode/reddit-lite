@@ -11,12 +11,18 @@ export interface ScoreProps {
   children: number
 }
 
+export const StyledFontAwesomeIcon = styled(FontAwesomeIcon)`
+  max-width: 14px;
+  max-height: 16px;
+  align-self: center;
+`
+
 export function Score(props: ScoreProps) {
   return (
     <>
-      <FontAwesomeIcon icon={faArrowUp} />
+      <StyledFontAwesomeIcon icon={faArrowUp} />
       <StyledScoreNumber>{props.children}</StyledScoreNumber>
-      <FontAwesomeIcon icon={faArrowDown} />
+      <StyledFontAwesomeIcon icon={faArrowDown} />
     </>
   )
 }
