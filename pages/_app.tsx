@@ -3,6 +3,8 @@ import Head from 'next/head'
 import { ApolloClient } from 'apollo-boost'
 import * as React from 'react'
 import { ApolloProvider, getDataFromTree } from 'react-apollo'
+import { Provider } from 'react-redux'
+import { store } from '../src/redux'
 import { initApolloClient } from '../src/graphql/apolloClient'
 import Header from '../src/components/Header'
 import { fromReqToUrl } from '../src/utils/fromReqToUrl'
@@ -20,10 +22,12 @@ export class InnerApp extends React.PureComponent<{
     return (
       <React.StrictMode>
         <ApolloProvider client={apolloClient || initApolloClient(apolloClientState as any, url)}>
-          <AppStyles />
-          <Header />
-          {children}
-          <BelowTheFoldStyles />
+          <Provider store={store}>
+            <AppStyles />
+            <Header />
+            {children}
+            <BelowTheFoldStyles />
+          </Provider>
         </ApolloProvider>
       </React.StrictMode>
     )
