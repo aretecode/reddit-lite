@@ -1,39 +1,41 @@
-import { distanceInWords, format } from 'date-fns'
-import { RedditBasicResponseType, RedditLitePostItemType, RedditLitePostKindType } from '../typings'
+import { isObjPure, isArray } from '../utils/is'
+import { EMPTY_OBJ, EMPTY_ARRAY } from '../utils/EMPTY'
+import {
+  UnsafeFetchMoreResponse,
+  RedditLitePostsGraphQLResponse,
+  RedditLitePostsResponse,
+} from '../typings'
 
-export function fromResponseToPostList(response: RedditBasicResponseType) {
-  return response.data.children.map(
-    (child): RedditLitePostItemType => {
-      const {data} = child
+/**
+ * @todo should not have to be done on client side
+ */
+export function fromFetchMoreToSafeUpdate(args: UnsafeFetchMoreResponse) {
+  const { fetchMoreResult } = args
 
-      /**
-       * could separate these to their own lines
-       */
-      return {
-        id: data.id,
-        postKind: (data.post_hint || 'text') as RedditLitePostKindType,
-        title: data.title || '',
-        body: data.selftext || '',
-        url: 'https://reddit.com' + data.permalink,
-        isSticky: !!data.stickied,
+  const newPosts =
+    isObjPure(fetchMoreResult) && isObjPure(fetchMoreResult.posts)
+      ? fetchMoreResult.posts
+      : EMPTY_OBJ
 
-        // .downs, .ups
-        score: data.score || 0,
+  const newList = isArray(newPosts.list) ? newPosts.list : EMPTY_ARRAY
 
-        // could nest
-        authorFullName: data.author_fullname || '',
-        authorFlairText: data.author_flair_text || '',
-        commentCount: data.num_comments || 0,
+  const newBefore = newPosts.before
+  const newAfter = newPosts.after
 
-        /**
-         * we could also add another for hover
-         */
-        createdAtUtc: data.created_utc,
-        createdAtIso: format(data.created_utc * 1000, 'YYYY-MM-DD[T]HH:mm:ssZZ'),
-        createdAtPretty: distanceInWords(data.created_utc * 1000, Date.now()),
+  return {
+    newPosts,
+    newList,
+    newBefore,
+    newAfter,
+  }
+}
 
-        imageUrl: data.thumbnail === 'self' ? '' : data.thumbnail,
-      }
-    }
-  )
+export function fromNewDataToApollo(newData: RedditLitePostsResponse) {
+  return {
+    posts: {
+      ...newData,
+      __typename: 'RedditLiteResponse',
+    },
+    __typename: '',
+  } as RedditLitePostsGraphQLResponse
 }

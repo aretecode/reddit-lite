@@ -5,7 +5,7 @@ export default gql`
     $subReddit: String
     $before: String
     $after: String
-    $limit: Int = 1
+    $limit: Int
   ) {
     posts(
       subReddit: $subReddit
