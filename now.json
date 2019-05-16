@@ -3,7 +3,8 @@
   "name": "reddit-lite",
   "env": {
     "IS_NOW": "true",
-    "STYLIS_SHOULD_PREFIX": "false"
+    "STYLIS_SHOULD_PREFIX": "false",
+    "GRAPHQL_API_URL": "https://reddit-lite-graphql.now.sh/graphql"
   },
   "routes": [
     {
