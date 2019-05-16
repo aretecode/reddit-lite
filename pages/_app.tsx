@@ -4,6 +4,7 @@ import { ApolloClient } from 'apollo-boost'
 import * as React from 'react'
 import { ApolloProvider, getDataFromTree } from 'react-apollo'
 import { Provider } from 'react-redux'
+import { AppContextProvider } from '../src/AppContext'
 import { store } from '../src/redux'
 import { initApolloClient } from '../src/graphql/apolloClient'
 import Header from '../src/components/Header'
@@ -17,19 +18,25 @@ export class InnerApp extends React.PureComponent<{
   url: URL
 }> {
   render() {
-    const {apolloClient, apolloClientState, url, children} = this.props
+    const { apolloClient, apolloClientState, url, children } = this.props
 
     return (
-      <React.StrictMode>
-        <ApolloProvider client={apolloClient || initApolloClient(apolloClientState as any, url)}>
-          <Provider store={store}>
-            <AppStyles />
-            <Header />
-            {children}
-            <BelowTheFoldStyles />
-          </Provider>
+      <AppContextProvider url={url}>
+        <ApolloProvider
+          client={
+            apolloClient || initApolloClient(apolloClientState as any, url)
+          }
+        >
+          <React.StrictMode>
+            <Provider store={store}>
+              <AppStyles />
+              <Header />
+              {children}
+              <BelowTheFoldStyles />
+            </Provider>
+          </React.StrictMode>
         </ApolloProvider>
-      </React.StrictMode>
+      </AppContextProvider>
     )
   }
 }
@@ -41,7 +48,7 @@ export default class MyApp extends App<{
   url: URL
 }> {
   static async getInitialProps(appContext: NextAppContext) {
-    const {Component, router, ctx} = appContext
+    const { Component, router, ctx } = appContext
     const url = fromReqToUrl(ctx.req as any)
     const pageProps = {}
 
@@ -101,7 +108,7 @@ export default class MyApp extends App<{
   }
 
   render() {
-    const {Component, pageProps, apolloClientState, url} = this.props
+    const { Component, pageProps, apolloClientState, url } = this.props
 
     return (
       <Container>
