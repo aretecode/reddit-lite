@@ -412,7 +412,9 @@ export interface UnsafeFetchMoreResponse {
   }
 }
 
+// could also put url here
 export interface ReduxStateType {
+  subReddit: string
   params: RedditLitePostsParamsType
   list: RedditLitePostItemType[]
 }
