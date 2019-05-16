@@ -8,4 +8,6 @@ const createdAtPretty = distanceInWords(Date.now() - 10000, Date.now())
 
 storiesOf('DateTime', module)
   .add('default', () => <DateTime />)
-  .add('with date', () => <DateTime dateTime={isoDate}>{createdAtPretty}</DateTime>)
+  .add('with date', () => (
+    <DateTime dateTime={isoDate}>{createdAtPretty}</DateTime>
+  ))

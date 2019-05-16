@@ -52,7 +52,9 @@ export function createInstance(
          * 3. if it's the browser, use `/graphql` (_same origin_)
          * 4. use `now.sh` deployment of graphql from `env`
          */
-        return process.env.READONLY !== 'true' && isObj(url) && url.searchParams.has('graphql')
+        return process.env.READONLY !== 'true' &&
+          isObj(url) &&
+          url.searchParams.has('graphql')
           ? url.searchParams.get('graphql')!
           : process.env.NODE_ENV === 'development'
           ? `http://localhost:4000/graphql?n=${operation.operationName}`
@@ -71,12 +73,14 @@ export function createInstance(
   })
 
   const logError = (error: GraphQLError): void => {
-    const {message, locations, path} = error
-    console.error(`[GraphQL error]: Message: ${message}, Location: ${locations}, Path: ${path}`)
+    const { message, locations, path } = error
+    console.error(
+      `[GraphQL error]: Message: ${message}, Location: ${locations}, Path: ${path}`
+    )
   }
 
   const errorLink = onError(namedErrorResponseParams => {
-    const {graphQLErrors, networkError, response} = namedErrorResponseParams
+    const { graphQLErrors, networkError, response } = namedErrorResponseParams
     const hasError = isObj(graphQLErrors) || !isEmpty(networkError)
 
     if (isObj(graphQLErrors)) {
@@ -132,7 +136,9 @@ export function createInstance(
    */
   const clientConfig: ApolloClientOptions<any> = {
     link: ApolloLink.from(
-      [consoleLink, errorLink, stateLink as ApolloLink, httpLink].filter(Boolean)
+      [consoleLink, errorLink, stateLink as ApolloLink, httpLink].filter(
+        Boolean
+      )
     ),
     cache,
     ssrMode: !process.browser,
@@ -145,7 +151,10 @@ export function createInstance(
   return client
 }
 
-export function initApolloClient(initialState?: NormalizedCacheObject, url?: URL) {
+export function initApolloClient(
+  initialState?: NormalizedCacheObject,
+  url?: URL
+) {
   // Make sure to create a new client for every server-side request so that data
   // isn't shared between connections (which would be bad)
   if (!process.browser) {

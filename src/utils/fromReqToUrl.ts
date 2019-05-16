@@ -8,7 +8,9 @@ export function fromReqToUrl(req: ExpressRequest): typeof URL {
   if (req === undefined) {
     if (process.browser) {
       if (process.env.NODE_ENV === 'development') {
-        console.warn('[fromReqToUrl] missing url, falling back to url from window')
+        console.warn(
+          '[fromReqToUrl] missing url, falling back to url from window'
+        )
       }
       return new URL(window.location.href)
     } else {

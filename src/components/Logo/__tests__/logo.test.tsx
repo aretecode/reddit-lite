@@ -8,7 +8,7 @@ describe('Logo', () => {
     expect(exported).toMatchSnapshot()
   })
   it('should render without errors', () => {
-    const {container} = render(<Logo />)
+    const { container } = render(<Logo />)
     expect(container).toMatchSnapshot()
   })
 })

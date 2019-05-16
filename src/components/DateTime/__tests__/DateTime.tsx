@@ -8,7 +8,7 @@ describe('DateTime', () => {
     expect(exported).toMatchSnapshot()
   })
   it('should render without errors', () => {
-    const {container} = render(<DateTime />)
+    const { container } = render(<DateTime />)
     expect(container).toMatchSnapshot()
   })
 })

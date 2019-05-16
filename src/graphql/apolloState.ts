@@ -36,7 +36,7 @@ export const apolloState = {
           optimistic: true,
         })
 
-        return {...data!.reddit}
+        return { ...data!.reddit }
       },
     },
   } as Resolvers,

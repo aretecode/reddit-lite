@@ -8,11 +8,11 @@ describe('Post', () => {
     expect(exported).toMatchSnapshot()
   })
   it('should render without errors', () => {
-    const {container} = render(<Post />)
+    const { container } = render(<Post />)
     expect(container).toMatchSnapshot()
   })
   it('should render a Score', () => {
-    const {container} = render(<Score>10</Score>)
+    const { container } = render(<Score>10</Score>)
     expect(container).toMatchSnapshot()
   })
 })
