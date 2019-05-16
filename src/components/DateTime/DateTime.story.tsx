@@ -6,8 +6,9 @@ import { DateTime } from './index'
 const isoDate = format(Date.now(), 'YYYY-MM-DD[T]HH:mm:ssZZ')
 const createdAtPretty = distanceInWords(Date.now() - 10000, Date.now())
 
+const DateTimeAny = DateTime as any
 storiesOf('DateTime', module)
-  .add('default', () => <DateTime />)
+  .add('default', () => <DateTimeAny />)
   .add('with date', () => (
     <DateTime dateTime={isoDate}>{createdAtPretty}</DateTime>
   ))

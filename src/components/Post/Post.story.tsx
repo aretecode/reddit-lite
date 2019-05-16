@@ -15,6 +15,8 @@ stories.add('as dynamic variables', () => {
   const commentCount = number('CommentCount', 9002)
   const imageUrl = text('Image', 'https://via.placeholder.com/150')
   const url = text('URL', 'https://www.reddit.com/r/vancouver/')
+  const isSticky = boolean('isSticky', false)
+
   const item = {
     title,
     imageUrl,
@@ -27,7 +29,7 @@ stories.add('as dynamic variables', () => {
     createdAtUtc: undefined as any,
     createdAtIso: undefined as any,
     postKind: 'text' as any,
-    isSticky: false,
+    isSticky,
     id: '-42',
     authorFlairText: 'minimal',
   }

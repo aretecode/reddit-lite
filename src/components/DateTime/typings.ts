@@ -1,7 +1,7 @@
 import * as React from 'react'
 
 export interface DateTimeBaseProps {
-  children: string | React.ReactChildren
+  children: React.ReactNode
   dateTime: string
 }
 export type DateTimeProps = DateTimeBaseProps &

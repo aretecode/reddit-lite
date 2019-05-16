@@ -27,7 +27,7 @@ export default class Post extends React.PureComponent<
     const { item = EMPTY_OBJ, ...remainingProps } = this.props
     const {
       title,
-      body,
+      // body,
       score = 10,
       authorFullName = 'aretecode',
       createdAtIso,

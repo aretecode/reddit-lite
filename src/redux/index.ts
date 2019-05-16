@@ -55,6 +55,7 @@ function isUniqById(
 }
 
 const reducer: Reducer = (state = init, action) => {
+  // tslint:disable:switch-default
   switch (action.type) {
     case 'POSTS': {
       const { list, ...remainingPayload } = action.payload
