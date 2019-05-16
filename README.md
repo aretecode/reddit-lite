@@ -18,6 +18,8 @@ yarn dev
 
 ## Requirements/Priorities
 
+> "it doesn’t exist if it’s not written down”
+
 1. Minimal, simple styles, high code quality
 2. Each post must include (_the "classic" view_)
 
@@ -40,7 +42,7 @@ yarn dev
 1. project requirements
 2. research
 3. project setup (_readme, configs, utils, typings, ssr setup [since we are using next.js]_)
-4. initial component shells (_page, header, list, default styles_) < **current**
+4. initial component shells (_page, header, list, default styles_)
 5. api data
 6. defining the data model
 7. tests
@@ -71,7 +73,7 @@ yarn dev
 - [danger-js](https://danger.systems/js/) to automate common PR chores (_just to comment files changed in PRs here_)
 - [Makefile](https://gist.github.com/isaacs/62a2d1825d04437c6f08) classic build system to simply run our tasks by just typing `make`
 - [zeit now](https://zeit.co/now) to quickly and easily deploy code
-- [fortawesome](https://github.com/FortAwesome/Font-Awesome) simple SVG icon components **NOTE** should probably swap for material directly
+- [material design icons](https://material.io/tools/icons/) simple SVG icon components
 - [yarn](https://yarnpkg.com/en/) to handle package management **NOTE**: the `resolutions` are used to de-duplicate dependencies from dependencies of dependencies
 - [storybook](https://github.com/storybooks/storybook) to run our components in their own page easily
 - [babel](https://babeljs.io/) with [babel-preset-typescript](https://babeljs.io/docs/en/babel-preset-typescript) to integrate with next.js and add polyfills where required
