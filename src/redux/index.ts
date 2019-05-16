@@ -22,6 +22,7 @@
 import { createStore, Reducer } from 'redux'
 
 const init = {
+  subReddit: 'vancouver',
   list: [],
   params: {
     before: '',
@@ -60,7 +61,7 @@ const reducer: Reducer = (state = init, action) => {
       return {
         ...state,
         ...remainingPayload,
-        list: list.filter(isUniqById),
+        list: [...state.list, ...list].filter(isUniqById),
       }
     }
   }
