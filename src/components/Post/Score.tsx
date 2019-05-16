@@ -1,10 +1,10 @@
 import * as React from 'react'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faArrowUp, faArrowDown } from '@fortawesome/free-solid-svg-icons'
 import styled, { css } from 'styled-components'
+import { StyledMaterialIcon } from '../MaterialIcon'
 
 export const StyledScoreNumber = styled.span`
   color: #1b1b1b;
+  margin: 0 auto;
 `
 
 export interface ScoreProps {
@@ -18,9 +18,7 @@ export const disallowedStyles = css`
   }
 `
 
-export const StyledFontAwesomeIcon = styled(FontAwesomeIcon)`
-  max-width: 14px;
-  max-height: 16px;
+export const StyledIcon = styled(StyledMaterialIcon)`
   align-self: center;
   ${disallowedStyles};
 `
@@ -32,14 +30,15 @@ export const StyledScoreWrap = styled.div`
   display: inline-flex;
   flex-direction: column;
   padding-right: 1rem;
+  align-self: center;
 `
 
 export function Score(props: ScoreProps) {
   return (
     <StyledScoreWrap>
-      <StyledFontAwesomeIcon icon={faArrowUp} />
+      <StyledIcon icon="up_arrow" />
       <StyledScoreNumber>{props.children}</StyledScoreNumber>
-      <StyledFontAwesomeIcon icon={faArrowDown} />
+      <StyledIcon icon="down_arrow" />
     </StyledScoreWrap>
   )
 }

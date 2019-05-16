@@ -1,7 +1,10 @@
+/**
+ * we could expand the block here to show content, but it's not in requirements
+ */
 import * as React from 'react'
-import { faExpand, faComment } from '@fortawesome/free-solid-svg-icons'
 import { EMPTY_OBJ } from '../../utils/EMPTY'
 import { RedditLitePostItemType } from '../../typings'
+import { StyledMaterialIcon } from '../MaterialIcon'
 import { Score } from './Score'
 import { PostProps } from './typings'
 import {
@@ -9,9 +12,9 @@ import {
   StyledPostedBy,
   StyledAuthorLink,
   StyledTitle,
+  StyledTitleLink,
   StyledCommentsLink,
   StyledDateTime,
-  StyledFontAwesomeIcon,
   StyledControlArea,
   StyledPreview,
   StyledPostDateGroup,
@@ -39,7 +42,9 @@ export default class Post extends React.PureComponent<
         <Score>{score}</Score>
         <StyledPreview src={imageUrl !== '' ? imageUrl : undefined} />
         {this.props.children}
-        <StyledTitle>{title}</StyledTitle>
+        <StyledTitleLink href={url}>
+          <StyledTitle>{title}</StyledTitle>
+        </StyledTitleLink>
 
         <StyledPostDateGroup>
           <StyledPostedBy>Posted by</StyledPostedBy>
@@ -54,12 +59,8 @@ export default class Post extends React.PureComponent<
         </StyledPostDateGroup>
 
         <StyledControlArea>
-          <StyledFontAwesomeIcon
-            title="expand icon for description... or link to image"
-            icon={faExpand}
-          />
           <StyledCommentsLink to={`${url}`}>
-            <StyledFontAwesomeIcon icon={faComment} />
+            <StyledMaterialIcon icon="comment" />
             {commentCount} comments
           </StyledCommentsLink>
         </StyledControlArea>

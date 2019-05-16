@@ -1,6 +1,7 @@
 import styled from 'styled-components'
 import { StyledLink } from '../Link'
 import { DateTime } from '../DateTime'
+import { StyledMaterialIcon } from '../MaterialIcon'
 
 /**
  * @see https://material.io/design/components/cards.html#anatomy
@@ -31,12 +32,24 @@ export const StyledCardArticle = styled.article`
 export const StyledPostedBy = styled.span`
   color: rgb(120, 124, 126);
 `
+
 export const StyledTitle = styled.h2`
   color: #1b1b1b;
-  flex-basis: 60%;
-  width: 60%;
+  flex-basis: 75%;
+  min-width: 60%;
   display: inline-flex;
   padding-left: 1rem;
+`
+export const StyledTitleLink = styled(StyledLink)`
+  text-decoration: none;
+  ${StyledTitle} {
+    color: rgb(0, 121, 211);
+  }
+  &:visited {
+    ${StyledTitle} {
+      color: rgb(140, 194, 235);
+    }
+  }
 `
 export const StyledAuthorLink = styled(StyledLink)`
   color: rgb(120, 124, 126);
@@ -47,7 +60,12 @@ export const StyledAuthorLink = styled(StyledLink)`
  */
 export const StyledCommentsLink = styled(StyledLink)`
   color: rgb(120, 124, 126);
-  margin-left: 0.25rem;
+  align-items: center;
+  display: inline-flex;
+
+  svg {
+    margin-right: 0.25rem;
+  }
 `
 export const StyledDateTime = styled(DateTime)`
   margin-left: 0.25rem;
@@ -62,8 +80,11 @@ export const StyledPreview = styled.img.attrs({
   src: 'https://via.placeholder.com/150',
 } as {})`
   display: inline-flex;
+  align-self: center;
+  height: fit-content;
+  min-height: 50px;
   width: 150px;
-  background: grey;
+  background-color: #eee;
 `
 
 export const StyledPostDateGroup = styled.p`
@@ -71,11 +92,7 @@ export const StyledPostDateGroup = styled.p`
   width: 100%;
 `
 
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-
-export const StyledFontAwesomeIcon = styled(FontAwesomeIcon)`
-  max-width: 14px;
-  max-height: 16px;
+export const StyledIcon = styled(StyledMaterialIcon)`
   align-self: center;
   margin-left: 0.25rem;
 `

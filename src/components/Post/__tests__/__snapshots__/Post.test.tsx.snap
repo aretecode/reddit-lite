@@ -8,7 +8,7 @@ Object {
     "$$typeof": Symbol(react.forward_ref),
     "attrs": Array [],
     "componentStyle": ComponentStyle {
-      "componentId": "sc-bZQynM",
+      "componentId": "sc-gzVnrw",
       "isStatic": true,
       "rules": Array [
         "
@@ -36,7 +36,7 @@ Object {
     "displayName": "styled.article",
     "foldedComponentIds": Array [],
     "render": [Function],
-    "styledComponentId": "sc-bZQynM",
+    "styledComponentId": "sc-gzVnrw",
     "target": "article",
     "toString": [Function],
     "warnTooManyClasses": [Function],
@@ -49,11 +49,12 @@ Object {
 exports[`Post should render a Score 1`] = `
 .c2 {
   color: #1b1b1b;
+  margin: 0 auto;
 }
 
 .c1 {
-  max-width: 14px;
-  max-height: 16px;
+  width: 24px;
+  height: 24px;
   -webkit-align-self: center;
   -ms-flex-item-align: center;
   align-self: center;
@@ -73,6 +74,9 @@ exports[`Post should render a Score 1`] = `
   -ms-flex-direction: column;
   flex-direction: column;
   padding-right: 1rem;
+  -webkit-align-self: center;
+  -ms-flex-item-align: center;
+  align-self: center;
 }
 
 <div>
@@ -80,18 +84,21 @@ exports[`Post should render a Score 1`] = `
     class="c0"
   >
     <svg
-      aria-hidden="true"
-      class="svg-inline--fa fa-arrow-up fa-w-14 c1"
-      data-icon="arrow-up"
-      data-prefix="fas"
-      focusable="false"
+      class="c1"
       role="img"
-      viewBox="0 0 448 512"
-      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      xmlns="https://www.w3.org/2000/svg"
     >
+      <title>
+        up_arrow
+         icon
+      </title>
       <path
-        d="M34.9 289.5l-22.2-22.2c-9.4-9.4-9.4-24.6 0-33.9L207 39c9.4-9.4 24.6-9.4 33.9 0l194.3 194.3c9.4 9.4 9.4 24.6 0 33.9L413 289.4c-9.5 9.5-25 9.3-34.3-.4L264 168.6V456c0 13.3-10.7 24-24 24h-32c-13.3 0-24-10.7-24-24V168.6L69.2 289.1c-9.3 9.8-24.8 10-34.3.4z"
-        fill="currentColor"
+        d="M4 12l1.41 1.41L11 7.83V20h2V7.83l5.58 5.59L20 12l-8-8-8 8z"
+      />
+      <path
+        d="M0 0h24v24H0V0z"
+        fill="none"
       />
     </svg>
     <span
@@ -100,18 +107,21 @@ exports[`Post should render a Score 1`] = `
       10
     </span>
     <svg
-      aria-hidden="true"
-      class="svg-inline--fa fa-arrow-down fa-w-14 c1"
-      data-icon="arrow-down"
-      data-prefix="fas"
-      focusable="false"
+      class="c1"
       role="img"
-      viewBox="0 0 448 512"
-      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      xmlns="https://www.w3.org/2000/svg"
     >
+      <title>
+        down_arrow
+         icon
+      </title>
       <path
-        d="M413.1 222.5l22.2 22.2c9.4 9.4 9.4 24.6 0 33.9L241 473c-9.4 9.4-24.6 9.4-33.9 0L12.7 278.6c-9.4-9.4-9.4-24.6 0-33.9l22.2-22.2c9.5-9.5 25-9.3 34.3.4L184 343.4V56c0-13.3 10.7-24 24-24h32c13.3 0 24 10.7 24 24v287.4l114.8-120.5c9.3-9.8 24.8-10 34.3-.4z"
-        fill="currentColor"
+        d="M20 12l-1.41-1.41L13 16.17V4h-2v12.17l-5.58-5.59L4 12l8 8 8-8z"
+      />
+      <path
+        d="M0 0h24v24H0V0z"
+        fill="none"
       />
     </svg>
   </div>
@@ -119,13 +129,19 @@ exports[`Post should render a Score 1`] = `
 `;
 
 exports[`Post should render without errors 1`] = `
+.c15 {
+  width: 24px;
+  height: 24px;
+}
+
 .c3 {
   color: #1b1b1b;
+  margin: 0 auto;
 }
 
 .c2 {
-  max-width: 14px;
-  max-height: 16px;
+  width: 24px;
+  height: 24px;
   -webkit-align-self: center;
   -ms-flex-item-align: center;
   align-self: center;
@@ -145,9 +161,12 @@ exports[`Post should render without errors 1`] = `
   -ms-flex-direction: column;
   flex-direction: column;
   padding-right: 1rem;
+  -webkit-align-self: center;
+  -ms-flex-item-align: center;
+  align-self: center;
 }
 
-.c10 {
+.c12 {
   display: -webkit-inline-box;
   display: -webkit-inline-flex;
   display: -ms-inline-flexbox;
@@ -176,16 +195,16 @@ exports[`Post should render without errors 1`] = `
   flex-wrap: wrap;
 }
 
-.c7 {
+.c9 {
   color: rgb(120,124,126);
 }
 
-.c5 {
+.c7 {
   color: #1b1b1b;
-  -webkit-flex-basis: 60%;
-  -ms-flex-preferred-size: 60%;
-  flex-basis: 60%;
-  width: 60%;
+  -webkit-flex-basis: 75%;
+  -ms-flex-preferred-size: 75%;
+  flex-basis: 75%;
+  min-width: 60%;
   display: -webkit-inline-box;
   display: -webkit-inline-flex;
   display: -ms-inline-flexbox;
@@ -193,46 +212,82 @@ exports[`Post should render without errors 1`] = `
   padding-left: 1rem;
 }
 
-.c8 {
-  color: rgb(120,124,126);
-  margin-left: 0.25rem;
+.c5 {
+  -webkit-text-decoration: none;
+  text-decoration: none;
 }
 
-.c8:focus {
+.c5:focus {
   outline: thin dotted;
 }
 
-.c8:hover {
+.c5:hover {
   color: #aaa;
 }
 
-.c8:link {
+.c5:link {
   -webkit-tap-highlight-color: rgba(102,102,102,0.5);
 }
 
-.c13 {
+.c5 .c6 {
+  color: rgb(0,121,211);
+}
+
+.c5:visited .c6 {
+  color: rgb(140,194,235);
+}
+
+.c10 {
   color: rgb(120,124,126);
   margin-left: 0.25rem;
 }
 
-.c13:focus {
+.c10:focus {
   outline: thin dotted;
 }
 
-.c13:hover {
+.c10:hover {
   color: #aaa;
 }
 
-.c13:link {
+.c10:link {
   -webkit-tap-highlight-color: rgba(102,102,102,0.5);
 }
 
-.c9 {
-  margin-left: 0.25rem;
+.c14 {
   color: rgb(120,124,126);
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+}
+
+.c14:focus {
+  outline: thin dotted;
+}
+
+.c14:hover {
+  color: #aaa;
+}
+
+.c14:link {
+  -webkit-tap-highlight-color: rgba(102,102,102,0.5);
+}
+
+.c14 svg {
+  margin-right: 0.25rem;
 }
 
 .c11 {
+  margin-left: 0.25rem;
+  color: rgb(120,124,126);
+}
+
+.c13 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -245,25 +300,23 @@ exports[`Post should render without errors 1`] = `
   display: -webkit-inline-flex;
   display: -ms-inline-flexbox;
   display: inline-flex;
+  -webkit-align-self: center;
+  -ms-flex-item-align: center;
+  align-self: center;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  min-height: 50px;
   width: 150px;
-  background: grey;
+  background-color: #eee;
 }
 
-.c6 {
+.c8 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
   width: 100%;
-}
-
-.c12 {
-  max-width: 14px;
-  max-height: 16px;
-  -webkit-align-self: center;
-  -ms-flex-item-align: center;
-  align-self: center;
-  margin-left: 0.25rem;
 }
 
 <div>
@@ -274,18 +327,21 @@ exports[`Post should render without errors 1`] = `
       class="c1"
     >
       <svg
-        aria-hidden="true"
-        class="svg-inline--fa fa-arrow-up fa-w-14 c2"
-        data-icon="arrow-up"
-        data-prefix="fas"
-        focusable="false"
+        class="c2"
         role="img"
-        viewBox="0 0 448 512"
-        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 24 24"
+        xmlns="https://www.w3.org/2000/svg"
       >
+        <title>
+          up_arrow
+           icon
+        </title>
         <path
-          d="M34.9 289.5l-22.2-22.2c-9.4-9.4-9.4-24.6 0-33.9L207 39c9.4-9.4 24.6-9.4 33.9 0l194.3 194.3c9.4 9.4 9.4 24.6 0 33.9L413 289.4c-9.5 9.5-25 9.3-34.3-.4L264 168.6V456c0 13.3-10.7 24-24 24h-32c-13.3 0-24-10.7-24-24V168.6L69.2 289.1c-9.3 9.8-24.8 10-34.3.4z"
-          fill="currentColor"
+          d="M4 12l1.41 1.41L11 7.83V20h2V7.83l5.58 5.59L20 12l-8-8-8 8z"
+        />
+        <path
+          d="M0 0h24v24H0V0z"
+          fill="none"
         />
       </svg>
       <span
@@ -294,86 +350,78 @@ exports[`Post should render without errors 1`] = `
         10
       </span>
       <svg
-        aria-hidden="true"
-        class="svg-inline--fa fa-arrow-down fa-w-14 c2"
-        data-icon="arrow-down"
-        data-prefix="fas"
-        focusable="false"
+        class="c2"
         role="img"
-        viewBox="0 0 448 512"
-        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 24 24"
+        xmlns="https://www.w3.org/2000/svg"
       >
+        <title>
+          down_arrow
+           icon
+        </title>
         <path
-          d="M413.1 222.5l22.2 22.2c9.4 9.4 9.4 24.6 0 33.9L241 473c-9.4 9.4-24.6 9.4-33.9 0L12.7 278.6c-9.4-9.4-9.4-24.6 0-33.9l22.2-22.2c9.5-9.5 25-9.3 34.3.4L184 343.4V56c0-13.3 10.7-24 24-24h32c13.3 0 24 10.7 24 24v287.4l114.8-120.5c9.3-9.8 24.8-10 34.3-.4z"
-          fill="currentColor"
+          d="M20 12l-1.41-1.41L13 16.17V4h-2v12.17l-5.58-5.59L4 12l8 8 8-8z"
+        />
+        <path
+          d="M0 0h24v24H0V0z"
+          fill="none"
         />
       </svg>
     </div>
     <img
       class="c4"
     />
-    <h2
-      class="c5"
-    />
+    <a
+      class="c5 "
+      href=""
+    >
+      <h2
+        class="c6 c7"
+      />
+    </a>
     <p
-      class="c6"
+      class="c8"
     >
       <span
-        class="c7"
+        class="c9"
       >
         Posted by
       </span>
       <a
-        class="c8"
+        class="c10"
         href="https://www.reddit.com/user/aretecode"
       >
         aretecode
       </a>
       <time
-        class="c9 c10"
+        class="c11 c12"
       >
          ago
       </time>
     </p>
     <div
-      class="c11"
+      class="c13"
     >
-      <svg
-        aria-labelledby="svg-inline--fa-title-2ipqRxMqzRJU"
-        class="svg-inline--fa fa-expand fa-w-14 c12"
-        data-icon="expand"
-        data-prefix="fas"
-        role="img"
-        viewBox="0 0 448 512"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <title
-          id="svg-inline--fa-title-2ipqRxMqzRJU"
-        >
-          expand icon for description... or link to image
-        </title>
-        <path
-          d="M0 180V56c0-13.3 10.7-24 24-24h124c6.6 0 12 5.4 12 12v40c0 6.6-5.4 12-12 12H64v84c0 6.6-5.4 12-12 12H12c-6.6 0-12-5.4-12-12zM288 44v40c0 6.6 5.4 12 12 12h84v84c0 6.6 5.4 12 12 12h40c6.6 0 12-5.4 12-12V56c0-13.3-10.7-24-24-24H300c-6.6 0-12 5.4-12 12zm148 276h-40c-6.6 0-12 5.4-12 12v84h-84c-6.6 0-12 5.4-12 12v40c0 6.6 5.4 12 12 12h124c13.3 0 24-10.7 24-24V332c0-6.6-5.4-12-12-12zM160 468v-40c0-6.6-5.4-12-12-12H64v-84c0-6.6-5.4-12-12-12H12c-6.6 0-12 5.4-12 12v124c0 13.3 10.7 24 24 24h124c6.6 0 12-5.4 12-12z"
-          fill="currentColor"
-        />
-      </svg>
       <a
-        class="c13 "
+        class="c14 "
         href="undefined"
       >
         <svg
-          aria-hidden="true"
-          class="svg-inline--fa fa-comment fa-w-16 c12"
-          data-icon="comment"
-          data-prefix="fas"
-          focusable="false"
+          class="c15"
           role="img"
-          viewBox="0 0 512 512"
-          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 24 24"
+          xmlns="https://www.w3.org/2000/svg"
         >
+          <title>
+            comment
+             icon
+          </title>
           <path
-            d="M256 32C114.6 32 0 125.1 0 240c0 49.6 21.4 95 57 130.7C44.5 421.1 2.7 466 2.2 466.5c-2.2 2.3-2.8 5.7-1.5 8.7S4.8 480 8 480c66.3 0 116-31.8 140.6-51.4 32.7 12.3 69 19.4 107.4 19.4 141.4 0 256-93.1 256-208S397.4 32 256 32z"
-            fill="currentColor"
+            d="M21.99 4c0-1.1-.89-2-1.99-2H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h14l4 4-.01-18zM18 14H6v-2h12v2zm0-3H6V9h12v2zm0-3H6V6h12v2z"
+          />
+          <path
+            d="M0 0h24v24H0V0z"
+            fill="none"
           />
         </svg>
          comments
