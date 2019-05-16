@@ -1,13 +1,9 @@
-/**
- * @todo might be able to put more of these in build-time only
- * @see https://github.com/zeit/next.js/issues/876
- */
 const withTypescript = require('@zeit/next-typescript')
 const withOffline = require('next-offline')
 
 /**
  * @description Make sure any symlinks in the project folder are resolved:
- * @see  https://github.com/facebookincubator/create-react-app/issues/637
+ * @see https://github.com/facebookincubator/create-react-app/issues/637
  */
 const { resolve, join } = require('path')
 const { realpathSync } = require('fs')
