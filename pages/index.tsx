@@ -43,11 +43,13 @@ export const StyledMain = styled.main`
   display: flex;
 `
 
+export const EMPTY_RESPONSE_INNER = Object.freeze({
+  params: EMPTY_OBJ,
+  list: EMPTY_ARRAY,
+})
 export const EMPTY_RESPONSE = Object.freeze({
   data: {
-    posts: {
-      list: EMPTY_ARRAY,
-    },
+    posts: EMPTY_RESPONSE_INNER,
   },
 })
 
@@ -56,6 +58,7 @@ export type IndexPageProps = ReduxStateType & {
 }
 
 export class IndexPage extends React.PureComponent<IndexPageProps> {
+  static defaultProps = EMPTY_RESPONSE_INNER
   graphql: QueryResult<
     RedditLitePostsGraphQLResponse,
     any
