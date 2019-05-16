@@ -3,7 +3,8 @@
   "name": "reddit-lite",
   "env": {
     "IS_NOW": "true",
-    "STYLIS_SHOULD_PREFIX": "false"
+    "STYLIS_SHOULD_PREFIX": "false",
+    "GRAPHQL_API_URL": "https://reddit-lite-graphql.now.sh/graphql"
   },
   "routes": [
     {
@@ -16,11 +17,18 @@
     },
     {
       "src": "/graphql",
-      "dest": "https://todo/graphql"
+      "dest": "https://reddit-lite-graphql.now.sh/graphql"
     },
     {
       "src": "/static/(.*)",
       "dest": "/static/$1",
+      "headers": {
+        "cache-control": "max-age=43200, s-maxage=86400"
+      }
+    },
+    {
+      "src": "/ui/(.*)",
+      "dest": "storybook/$1",
       "headers": {
         "cache-control": "max-age=43200, s-maxage=86400"
       }
@@ -37,6 +45,10 @@
     {
       "src": "package.json",
       "use": "@now/next"
+    },
+    {
+      "src": ".storybook/config.js",
+      "use": "now-static-build-storybook"
     }
   ]
 }

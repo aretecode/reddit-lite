@@ -12,12 +12,16 @@ export interface RequestIdleCallbackDeadline {
   readonly didTimeout: boolean
   timeRemaining: () => number
 }
-export type RequestIdleCallbackFunctionArgType = (deadline: RequestIdleCallbackDeadline) => void
+export type RequestIdleCallbackFunctionArgType = (
+  deadline: RequestIdleCallbackDeadline
+) => void
 export type RequestIdleCallbackFunctionType = (
   callback: RequestIdleCallbackFunctionArgType,
   opts?: RequestIdleCallbackOptions
 ) => RequestIdleCallbackHandle
-export type CancelIdleCallbackFunctionType = (handle: RequestIdleCallbackHandle) => void
+export type CancelIdleCallbackFunctionType = (
+  handle: RequestIdleCallbackHandle
+) => void
 
 const IS_BROWSER = typeof window === 'object'
 

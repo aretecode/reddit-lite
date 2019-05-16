@@ -6,11 +6,16 @@ README.md
 .prettierignore
 .prettierrc
 .travis.yml
+.editorconfig
+Makefile
+LICENSE
 dangerfile.ts
 jest.config.js
 jest.setup.js
 rollup.config.js
 stylelint.config.js
-.storybook
+tslint.json
+tsconfig.test.json
+.vscode
 __tests__
 stories

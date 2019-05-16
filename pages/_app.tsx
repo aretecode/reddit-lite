@@ -3,6 +3,9 @@ import Head from 'next/head'
 import { ApolloClient } from 'apollo-boost'
 import * as React from 'react'
 import { ApolloProvider, getDataFromTree } from 'react-apollo'
+import { Provider } from 'react-redux'
+import { AppContextProvider } from '../src/AppContext'
+import { store } from '../src/redux'
 import { initApolloClient } from '../src/graphql/apolloClient'
 import Header from '../src/components/Header'
 import { fromReqToUrl } from '../src/utils/fromReqToUrl'
@@ -15,17 +18,25 @@ export class InnerApp extends React.PureComponent<{
   url: URL
 }> {
   render() {
-    const {apolloClient, apolloClientState, url, children} = this.props
+    const { apolloClient, apolloClientState, url, children } = this.props
 
     return (
-      <React.StrictMode>
-        <ApolloProvider client={apolloClient || initApolloClient(apolloClientState as any, url)}>
-          <AppStyles />
-          <Header />
-          {children}
-          <BelowTheFoldStyles />
+      <AppContextProvider url={url}>
+        <ApolloProvider
+          client={
+            apolloClient || initApolloClient(apolloClientState as any, url)
+          }
+        >
+          <React.StrictMode>
+            <Provider store={store}>
+              <AppStyles />
+              <Header />
+              {children}
+              <BelowTheFoldStyles />
+            </Provider>
+          </React.StrictMode>
         </ApolloProvider>
-      </React.StrictMode>
+      </AppContextProvider>
     )
   }
 }
@@ -37,7 +48,7 @@ export default class MyApp extends App<{
   url: URL
 }> {
   static async getInitialProps(appContext: NextAppContext) {
-    const {Component, router, ctx} = appContext
+    const { Component, ctx } = appContext
     const url = fromReqToUrl(ctx.req as any)
     const pageProps = {}
 
@@ -53,12 +64,9 @@ export default class MyApp extends App<{
 
       try {
         /**
-         * @note !!! this does not properly ssr if we render `<App>` (even if we pass in apolloClient) !!!
          * @description Run all GraphQL queries
-         * @todo this is really bad @@perf
          * @description ideally we would combine this into a single tree walking
          *              to get other data needed in ssr to rehydrate from
-         * @note this uses old `Context`
          * @see https://github.com/apollographql/react-apollo/blob/master/src/getDataFromTree.ts
          * @see https://github.com/apollographql/react-apollo/blob/master/src/Query.tsx#L164
          */
@@ -68,14 +76,18 @@ export default class MyApp extends App<{
           </InnerApp>
         )
       } catch (error) {
-        // Prevent Apollo Client GraphQL errors from crashing SSR.
-        // Handle them in components via the data.error prop:
-        // https://www.apollographql.com/docs/react/api/react-apollo.html#graphql-query-data-error
+        /**
+         * Prevent Apollo Client GraphQL errors from crashing SSR.
+         * Handle them in components via the data.error prop:
+         * @see https://www.apollographql.com/docs/react/api/react-apollo.html#graphql-query-data-error
+         */
         console.error('Error while running `getDataFromTree`', error)
       }
 
-      // getDataFromTree does not call componentWillUnmount
-      // head side effect therefore need to be cleared manually
+      /**
+       * getDataFromTree does not call componentWillUnmount
+       * head side effect therefore need to be cleared manually
+       */
       Head.rewind()
     } else {
       console.debug('[_app] starting ssr (browser, rehydrate)')
@@ -97,7 +109,7 @@ export default class MyApp extends App<{
   }
 
   render() {
-    const {Component, pageProps, apolloClientState, url} = this.props
+    const { Component, pageProps, apolloClientState, url } = this.props
 
     return (
       <Container>

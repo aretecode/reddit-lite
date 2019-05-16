@@ -8,7 +8,7 @@ describe('Header', () => {
     expect(exported).toMatchSnapshot()
   })
   it('should render without errors', () => {
-    const {container} = render(<Header />)
+    const { container } = render(<Header />)
     expect(container).toMatchSnapshot()
   })
 })

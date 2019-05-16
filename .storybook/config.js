@@ -3,7 +3,6 @@
  */
 import React, { StrictMode } from 'react'
 import { configure, setAddon, addDecorator } from '@storybook/react'
-import '@storybook/addon-knobs/register'
 import styled, { createGlobalStyle } from 'styled-components'
 import { AppStyles } from '../src/AppStyles'
 

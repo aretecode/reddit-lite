@@ -1,3 +1,3 @@
 export interface PostProps {
-  score?: number
+  className?: string
 }

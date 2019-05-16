@@ -1,0 +1,44 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`DateTime should match export snapshot 1`] = `
+Object {
+  "DateTime": [Function],
+  "StyledTime": Object {
+    "$$typeof": Symbol(react.forward_ref),
+    "attrs": Array [],
+    "componentStyle": ComponentStyle {
+      "componentId": "sc-bdVaJa",
+      "isStatic": true,
+      "rules": Array [
+        "
+  display: inline-flex;
+",
+      ],
+    },
+    "displayName": "styled.time",
+    "foldedComponentIds": Array [],
+    "render": [Function],
+    "styledComponentId": "sc-bdVaJa",
+    "target": "time",
+    "toString": [Function],
+    "warnTooManyClasses": [Function],
+    "withComponent": [Function],
+  },
+  "default": [Function],
+}
+`;
+
+exports[`DateTime should render without errors 1`] = `
+.c0 {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+}
+
+<div>
+  <time
+    class="c0"
+  />
+</div>
+`;

@@ -8,7 +8,7 @@ Object {
     "$$typeof": Symbol(react.forward_ref),
     "attrs": Array [],
     "componentStyle": ComponentStyle {
-      "componentId": "sc-bdVaJa",
+      "componentId": "sc-gzVnrw",
       "isStatic": true,
       "rules": Array [
         "
@@ -27,13 +27,16 @@ Object {
   border-radius: 0.125rem;
   box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2),
     0 1px 5px 0 rgba(0, 0, 0, 0.12);
+
+  display: flex;
+  flex-wrap: wrap;
 ",
       ],
     },
     "displayName": "styled.article",
     "foldedComponentIds": Array [],
     "render": [Function],
-    "styledComponentId": "sc-bdVaJa",
+    "styledComponentId": "sc-gzVnrw",
     "target": "article",
     "toString": [Function],
     "warnTooManyClasses": [Function],
@@ -44,50 +47,132 @@ Object {
 `;
 
 exports[`Post should render a Score 1`] = `
-.c0 {
+.c2 {
   color: #1b1b1b;
+  margin: 0 auto;
+}
+
+.c1 {
+  width: 24px;
+  height: 24px;
+  -webkit-align-self: center;
+  -ms-flex-item-align: center;
+  align-self: center;
+  cursor: not-allowed;
+}
+
+.c1:active {
+  pointer-events: none;
+}
+
+.c0 {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  padding-right: 1rem;
+  -webkit-align-self: center;
+  -ms-flex-item-align: center;
+  align-self: center;
 }
 
 <div>
-  <svg
-    aria-hidden="true"
-    class="svg-inline--fa fa-arrow-up fa-w-14 "
-    data-icon="arrow-up"
-    data-prefix="fas"
-    focusable="false"
-    role="img"
-    viewBox="0 0 448 512"
-    xmlns="http://www.w3.org/2000/svg"
-  >
-    <path
-      d="M34.9 289.5l-22.2-22.2c-9.4-9.4-9.4-24.6 0-33.9L207 39c9.4-9.4 24.6-9.4 33.9 0l194.3 194.3c9.4 9.4 9.4 24.6 0 33.9L413 289.4c-9.5 9.5-25 9.3-34.3-.4L264 168.6V456c0 13.3-10.7 24-24 24h-32c-13.3 0-24-10.7-24-24V168.6L69.2 289.1c-9.3 9.8-24.8 10-34.3.4z"
-      fill="currentColor"
-    />
-  </svg>
-  <span
+  <div
     class="c0"
   >
-    10
-  </span>
-  <svg
-    aria-hidden="true"
-    class="svg-inline--fa fa-arrow-down fa-w-14 "
-    data-icon="arrow-down"
-    data-prefix="fas"
-    focusable="false"
-    role="img"
-    viewBox="0 0 448 512"
-    xmlns="http://www.w3.org/2000/svg"
-  >
-    <path
-      d="M413.1 222.5l22.2 22.2c9.4 9.4 9.4 24.6 0 33.9L241 473c-9.4 9.4-24.6 9.4-33.9 0L12.7 278.6c-9.4-9.4-9.4-24.6 0-33.9l22.2-22.2c9.5-9.5 25-9.3 34.3.4L184 343.4V56c0-13.3 10.7-24 24-24h32c13.3 0 24 10.7 24 24v287.4l114.8-120.5c9.3-9.8 24.8-10 34.3-.4z"
-      fill="currentColor"
-    />
-  </svg>
+    <svg
+      class="c1"
+      role="img"
+      viewBox="0 0 24 24"
+      xmlns="https://www.w3.org/2000/svg"
+    >
+      <title>
+        up_arrow
+         icon
+      </title>
+      <path
+        d="M4 12l1.41 1.41L11 7.83V20h2V7.83l5.58 5.59L20 12l-8-8-8 8z"
+      />
+      <path
+        d="M0 0h24v24H0V0z"
+        fill="none"
+      />
+    </svg>
+    <span
+      class="c2"
+    >
+      10
+    </span>
+    <svg
+      class="c1"
+      role="img"
+      viewBox="0 0 24 24"
+      xmlns="https://www.w3.org/2000/svg"
+    >
+      <title>
+        down_arrow
+         icon
+      </title>
+      <path
+        d="M20 12l-1.41-1.41L13 16.17V4h-2v12.17l-5.58-5.59L4 12l8 8 8-8z"
+      />
+      <path
+        d="M0 0h24v24H0V0z"
+        fill="none"
+      />
+    </svg>
+  </div>
 </div>
 `;
 
 exports[`Post should render without errors 1`] = `
+.c15 {
+  width: 24px;
+  height: 24px;
+}
+
+.c3 {
+  color: #1b1b1b;
+  margin: 0 auto;
+}
+
+.c2 {
+  width: 24px;
+  height: 24px;
+  -webkit-align-self: center;
+  -ms-flex-item-align: center;
+  align-self: center;
+  cursor: not-allowed;
+}
+
+.c2:active {
+  pointer-events: none;
+}
+
+.c1 {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  padding-right: 1rem;
+  -webkit-align-self: center;
+  -ms-flex-item-align: center;
+  align-self: center;
+}
+
+.c12 {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+}
+
 .c0 {
   margin: 0;
   padding: 1rem;
@@ -101,51 +186,247 @@ exports[`Post should render without errors 1`] = `
   white-space: normal;
   border-radius: 0.125rem;
   box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14),0 3px 1px -2px rgba(0,0,0,0.2), 0 1px 5px 0 rgba(0,0,0,0.12);
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
 }
 
-.c1 {
+.c9 {
+  color: rgb(120,124,126);
+}
+
+.c7 {
   color: #1b1b1b;
+  -webkit-flex-basis: 75%;
+  -ms-flex-preferred-size: 75%;
+  flex-basis: 75%;
+  min-width: 60%;
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  padding-left: 1rem;
+}
+
+.c5 {
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.c5:focus {
+  outline: thin dotted;
+}
+
+.c5:hover {
+  color: #aaa;
+}
+
+.c5:link {
+  -webkit-tap-highlight-color: rgba(102,102,102,0.5);
+}
+
+.c5 .c6 {
+  color: rgb(0,121,211);
+}
+
+.c5:visited .c6 {
+  color: rgb(140,194,235);
+}
+
+.c10 {
+  color: rgb(120,124,126);
+  margin-left: 0.25rem;
+}
+
+.c10:focus {
+  outline: thin dotted;
+}
+
+.c10:hover {
+  color: #aaa;
+}
+
+.c10:link {
+  -webkit-tap-highlight-color: rgba(102,102,102,0.5);
+}
+
+.c14 {
+  color: rgb(120,124,126);
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+}
+
+.c14:focus {
+  outline: thin dotted;
+}
+
+.c14:hover {
+  color: #aaa;
+}
+
+.c14:link {
+  -webkit-tap-highlight-color: rgba(102,102,102,0.5);
+}
+
+.c14 svg {
+  margin-right: 0.25rem;
+}
+
+.c11 {
+  margin-left: 0.25rem;
+  color: rgb(120,124,126);
+}
+
+.c13 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+}
+
+.c4 {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-align-self: center;
+  -ms-flex-item-align: center;
+  align-self: center;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  min-height: 50px;
+  width: 150px;
+  background-color: #eee;
+}
+
+.c8 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
 }
 
 <div>
   <article
     class="c0"
   >
-    <svg
-      aria-hidden="true"
-      class="svg-inline--fa fa-arrow-up fa-w-14 "
-      data-icon="arrow-up"
-      data-prefix="fas"
-      focusable="false"
-      role="img"
-      viewBox="0 0 448 512"
-      xmlns="http://www.w3.org/2000/svg"
-    >
-      <path
-        d="M34.9 289.5l-22.2-22.2c-9.4-9.4-9.4-24.6 0-33.9L207 39c9.4-9.4 24.6-9.4 33.9 0l194.3 194.3c9.4 9.4 9.4 24.6 0 33.9L413 289.4c-9.5 9.5-25 9.3-34.3-.4L264 168.6V456c0 13.3-10.7 24-24 24h-32c-13.3 0-24-10.7-24-24V168.6L69.2 289.1c-9.3 9.8-24.8 10-34.3.4z"
-        fill="currentColor"
-      />
-    </svg>
-    <span
+    <div
       class="c1"
     >
-      10
-    </span>
-    <svg
-      aria-hidden="true"
-      class="svg-inline--fa fa-arrow-down fa-w-14 "
-      data-icon="arrow-down"
-      data-prefix="fas"
-      focusable="false"
-      role="img"
-      viewBox="0 0 448 512"
-      xmlns="http://www.w3.org/2000/svg"
+      <svg
+        class="c2"
+        role="img"
+        viewBox="0 0 24 24"
+        xmlns="https://www.w3.org/2000/svg"
+      >
+        <title>
+          up_arrow
+           icon
+        </title>
+        <path
+          d="M4 12l1.41 1.41L11 7.83V20h2V7.83l5.58 5.59L20 12l-8-8-8 8z"
+        />
+        <path
+          d="M0 0h24v24H0V0z"
+          fill="none"
+        />
+      </svg>
+      <span
+        class="c3"
+      >
+        10
+      </span>
+      <svg
+        class="c2"
+        role="img"
+        viewBox="0 0 24 24"
+        xmlns="https://www.w3.org/2000/svg"
+      >
+        <title>
+          down_arrow
+           icon
+        </title>
+        <path
+          d="M20 12l-1.41-1.41L13 16.17V4h-2v12.17l-5.58-5.59L4 12l8 8 8-8z"
+        />
+        <path
+          d="M0 0h24v24H0V0z"
+          fill="none"
+        />
+      </svg>
+    </div>
+    <img
+      class="c4"
+    />
+    <a
+      class="c5 "
+      href=""
     >
-      <path
-        d="M413.1 222.5l22.2 22.2c9.4 9.4 9.4 24.6 0 33.9L241 473c-9.4 9.4-24.6 9.4-33.9 0L12.7 278.6c-9.4-9.4-9.4-24.6 0-33.9l22.2-22.2c9.5-9.5 25-9.3 34.3.4L184 343.4V56c0-13.3 10.7-24 24-24h32c13.3 0 24 10.7 24 24v287.4l114.8-120.5c9.3-9.8 24.8-10 34.3-.4z"
-        fill="currentColor"
+      <h2
+        class="c6 c7"
       />
-    </svg>
+    </a>
+    <p
+      class="c8"
+    >
+      <span
+        class="c9"
+      >
+        Posted by
+      </span>
+      <a
+        class="c10"
+        href="https://www.reddit.com/user/aretecode"
+      >
+        aretecode
+      </a>
+      <time
+        class="c11 c12"
+      >
+         ago
+      </time>
+    </p>
+    <div
+      class="c13"
+    >
+      <a
+        class="c14 "
+        href="undefined"
+      >
+        <svg
+          class="c15"
+          role="img"
+          viewBox="0 0 24 24"
+          xmlns="https://www.w3.org/2000/svg"
+        >
+          <title>
+            comment
+             icon
+          </title>
+          <path
+            d="M21.99 4c0-1.1-.89-2-1.99-2H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h14l4 4-.01-18zM18 14H6v-2h12v2zm0-3H6V9h12v2zm0-3H6V6h12v2z"
+          />
+          <path
+            d="M0 0h24v24H0V0z"
+            fill="none"
+          />
+        </svg>
+         comments
+      </a>
+    </div>
   </article>
 </div>
 `;

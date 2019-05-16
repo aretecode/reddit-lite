@@ -1,4 +1,11 @@
-import { AnyArrayOrObj, AnyArray, Real, Empty, AnyFunction } from '../typings'
+import {
+  AnyObj,
+  AnyArrayOrObj,
+  AnyArray,
+  Real,
+  Empty,
+  AnyFunction,
+} from '../typings'
 
 export function has<T, K extends keyof T>(obj: T, key: K): T[K] {
   return Object.prototype.hasOwnProperty.bind(Object)(obj, key)
@@ -53,7 +60,9 @@ export function isArrayLike<T>(x: any): x is ArrayLike<T> {
 export function isObj(x: any): x is AnyArrayOrObj {
   return isNull(x) === false && (typeof x === 'object' || isArray(x))
 }
-export const isObjPure = isObj
+export function isObjPure(x: any): x is AnyObj {
+  return isNull(x) === false && typeof x === 'object'
+}
 export const isObjTag = isObj
 
 export const IS_WEAKMAP_USABLE = typeof WeakMap !== 'undefined'
@@ -98,10 +107,10 @@ export function isSet(x: unknown): x is Set<any> {
     .includes('set')
 }
 
-export function isEnumerable<ObjType extends {}, PropType extends keyof ObjType>(
-  obj: ObjType,
-  prop: PropType
-): boolean {
+export function isEnumerable<
+  ObjType extends {},
+  PropType extends keyof ObjType
+>(obj: ObjType, prop: PropType): boolean {
   return isObj(obj) && Object.prototype.propertyIsEnumerable.call(obj, prop)
 }
 
@@ -140,7 +149,9 @@ export function isMatcher(x: any): x is string | AnyFunction | RegExp {
   return isString(x) || isFunction(x) || isRegExp(x)
 }
 
-export function isPrimitive(x: any): x is string | number | symbol | boolean | null | undefined {
+export function isPrimitive(
+  x: any
+): x is string | number | symbol | boolean | null | undefined {
   return isString(x) || isBoolean(x) || isNumber(x) || isSymbol(x) || isNil(x)
 }
 

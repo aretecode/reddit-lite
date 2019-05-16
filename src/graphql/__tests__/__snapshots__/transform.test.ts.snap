@@ -1,33 +1,19 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`graphql transform should safely trannsform our response 1`] = `
-Array [
-  Object {
-    "authorFlairText": "google searches for you",
-    "authorFullName": "t2_3rnmf",
-    "body": "Are you looking for something to do? Would you like to advertise your event? Want to suggest something to everyone? Whether it's a show, a play, a conference, a restaurant opening, or whatever, this is where you can stick all of it. This is a monthly post that is useful for Vancouverites, useful for tourists, and useful for the main Vancouver sub.
+exports[`graphql transform should safely transform our response 1`] = `
+Object {
+  "newAfter": undefined,
+  "newBefore": undefined,
+  "newList": Array [],
+  "newPosts": Object {},
+}
+`;
 
-**New**
-
-Please post any opportunities to volunteer that you want the subreddit to know about. This thread will be curated periodically to keep the events of the week fresh and visible.
-
-**Who?**
-
-Events don't need to be yours! You're welcome to post any interesting/fun/unknown/well known/moderately-enjoyable events. Will remove posts completely off topic (like a link to one's unrelated blog or comments about how there's nothing to do in this city)
-
-**Tip**
-
-Sort the comments below BY NEW to see the latest events
-
-
-[April Events Thread](https://www.reddit.com/r/vancouver/comments/b5dlhh/april_events_and_volunteering_thread_please_post/)",
-    "commentCount": 50,
-    "id": "bjcurx",
-    "isSticky": true,
-    "postKind": "text",
-    "score": 23,
-    "title": "May Events and Volunteering Thread. Please post your upcoming events and volunteering opportunities here.",
-    "url": "https://reddit.com/r/vancouver/comments/bjcurx/may_events_and_volunteering_thread_please_post/",
+exports[`graphql transform should safely transform our response 2`] = `
+Object {
+  "__typename": "",
+  "posts": Object {
+    "__typename": "RedditLiteResponse",
   },
-]
+}
 `;

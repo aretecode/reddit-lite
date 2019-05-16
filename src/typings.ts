@@ -1,7 +1,14 @@
 /**
  * === basics ===
  */
-export type Primitive = string | number | boolean | symbol | null | undefined | void
+export type Primitive =
+  | string
+  | number
+  | boolean
+  | symbol
+  | null
+  | undefined
+  | void
 
 export type SafePrimitive = string | number | boolean | symbol
 
@@ -19,7 +26,11 @@ export interface FrozenSerializedArray extends Readonly<Serialized[]> {
   readonly(x: number): Serialized
 }
 
-export type Serialized = SerializedObj | Primitive | FrozenSerializedObj | FrozenSerializedArray
+export type Serialized =
+  | SerializedObj
+  | Primitive
+  | FrozenSerializedObj
+  | FrozenSerializedArray
 
 export type Real = AnyArrayOrObj | SafePrimitive
 
@@ -54,7 +65,9 @@ export type UnknownArray = unknown[]
 /**
  * @see https://www.typescriptlang.org/docs/handbook/release-notes/typescript-2-8.html
  */
-export type RecursiveRequired<Type> = {[Key in keyof Type]-?: RecursiveRequired<Type[Key]>}
+export type RecursiveRequired<Type> = {
+  [Key in keyof Type]-?: RecursiveRequired<Type[Key]>
+}
 
 /**
  * @description to add __typename
@@ -67,15 +80,20 @@ export type WithTypeNameRecursive<Type extends {}> = {
     : Type[Key] extends any[]
     ? WithTypeNameRecursive<Type[Key]>
     : Type[Key] extends {}
-    ? Type[Key] & {__typename: string}
+    ? Type[Key] & { __typename: string }
     : Type[Key]
-} & {__typename?: string}
+} & { __typename?: string }
 
 /**
  * === empty ===
  */
 
-export type Empty = {[key: string]: never} | EmptyArray | '' | EmptySet | EmptyMap
+export type Empty =
+  | { [key: string]: never }
+  | EmptyArray
+  | ''
+  | EmptySet
+  | EmptyMap
 export interface EmptyMap<Key = string, Value = any> extends Map<Key, Value> {
   size: 0
 }
@@ -114,8 +132,8 @@ export interface Resolvers<
   ContextType extends object = {},
   ResponseType extends object = AnyObj
 > {
-  Mutation?: {[key: string]: Resolver<ArgsType, ContextType, ResponseType>}
-  Query?: {[key: string]: Resolver<ArgsType, ContextType, ResponseType>}
+  Mutation?: { [key: string]: Resolver<ArgsType, ContextType, ResponseType> }
+  Query?: { [key: string]: Resolver<ArgsType, ContextType, ResponseType> }
 }
 
 /**
@@ -305,6 +323,18 @@ export type RedditLitePostKindType = 'text' | 'link' | 'url' | ''
 export interface RedditLitePostItemType {
   id: string
   postKind: RedditLitePostKindType
+
+  /**
+   * ISO-8601 format
+   */
+  createdAtIso: string
+  createdAtUtc: number | string
+  /**
+   * @example
+   *   13 days ago
+   */
+  createdAtPretty: string
+
   title: string
   /**
    * body of the post
@@ -341,4 +371,50 @@ export interface RedditLitePostItemType {
    * total comments
    */
   commentCount: number
+
+  /**
+   * currently not doing overly complicated images
+   */
+  imageUrl: string
+
+  /**
+   * could add with the type util
+   */
+  __typename?: string
+}
+
+export interface RedditLitePostsParamsType {
+  limit?: number
+  after?: string
+  before?: string
+  __typename?: string
+}
+
+export interface RedditLitePostsResponse extends RedditLitePostsParamsType {
+  __typename?: string
+  list: RedditLitePostItemType[]
+}
+
+export interface RedditLitePostsGraphQLResponse {
+  posts: RedditLitePostsResponse
+}
+
+/**
+ * === specific for some pieces ===
+ */
+
+export interface UnsafeFetchMoreResponse {
+  previousResult: {
+    [key: string]: any
+  }
+  fetchMoreResult?: {
+    [key: string]: any
+  }
+}
+
+// could also put url here
+export interface ReduxStateType {
+  subReddit: string
+  params: RedditLitePostsParamsType
+  list: RedditLitePostItemType[]
 }

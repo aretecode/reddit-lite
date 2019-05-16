@@ -7,6 +7,30 @@
 
 [![Deploy to now](https://deploy.now.sh/static/button.svg)](https://deploy.now.sh/?repo=https://github.com/aretecode/reddit-lite)
 
+## Usage
+1. to select a subReddit, append `subReddit=NAME_HERE` to the search params (_[example here](https://reddit-lite.aretecode.now.sh/?subReddit=canada)_)
+2. to use a custom graphql endpoint, use `graphql=API_URL_HERE` in the search params (_[example here](https://reddit-lite.aretecode.now.sh/?subReddit=canada&graphql=https://reddit-lite-graphql.now.sh/graphql)_)
+
+### Deployments
+##### Reddit React Lite
+[reddit-lite.aretecode.now.sh](https://reddit-lite.aretecode.now.sh/)
+> for the React code (_with Redux devtools enabled_)
+
+![reddit lite](https://user-images.githubusercontent.com/4022631/57826883-0f5c9b00-775a-11e9-99ae-cd5582993d50.gif)
+
+##### Reddit React Lite (GraphQL)
+- [reddit-lite.aretecode.now.sh/graphql](https://reddit-lite.aretecode.now.sh/graphql) for graphql playground
+- [aretecode/reddit-lite-graphql](https://github.com/aretecode/reddit-graphql) for the code
+
+<img width="1091" alt="Screen Shot 2019-05-15 at 9 38 21 PM" src="https://user-images.githubusercontent.com/4022631/57826875-07046000-775a-11e9-9219-993d2e91c6e7.png">
+
+
+##### Storybook
+- [reddit-lite.aretecode.now.sh/ui/index.html](https://reddit-lite.aretecode.now.sh/ui/index.html?path=/story/post--as-dynamic-variables) for the static storybook deployment
+
+<img width="652" alt="Screen Shot 2019-05-15 at 9 37 54 PM" src="https://user-images.githubusercontent.com/4022631/57826877-0966ba00-775a-11e9-955c-94d5be3f27d6.png">
+
+
 ## Development
 
 ```bash
@@ -16,7 +40,18 @@ yarn install
 yarn dev
 ```
 
+#### Storybook
+```bash
+yarn dev:storybook
+```
+#### Tests
+```bash
+yarn test
+```
+
 ## Requirements/Priorities
+
+> "it doesn’t exist if it’s not written down”
 
 1. Minimal, simple styles, high code quality
 2. Each post must include (_the "classic" view_)
@@ -40,7 +75,7 @@ yarn dev
 1. project requirements
 2. research
 3. project setup (_readme, configs, utils, typings, ssr setup [since we are using next.js]_)
-4. initial component shells (_page, header, list, default styles_) < **current**
+4. initial component shells (_page, header, list, default styles_)
 5. api data
 6. defining the data model
 7. tests
@@ -50,6 +85,7 @@ yarn dev
 
 ## API
 
+- [aretecode/reddit-lite-graphql](https://github.com/aretecode/reddit-graphql) contains the important apollo graphql server around the reddit api
 - [example json response](https://reddit.com/r/vancouver.json) (_add .json to any subreddit_)
 - [reddit - official api](https://www.reddit.com/dev/api/) (_not required... yet_)
 
@@ -70,7 +106,7 @@ yarn dev
 - [danger-js](https://danger.systems/js/) to automate common PR chores (_just to comment files changed in PRs here_)
 - [Makefile](https://gist.github.com/isaacs/62a2d1825d04437c6f08) classic build system to simply run our tasks by just typing `make`
 - [zeit now](https://zeit.co/now) to quickly and easily deploy code
-- [fortawesome](https://github.com/FortAwesome/Font-Awesome) simple SVG icon components **NOTE** should probably swap for material directly
+- [material design icons](https://material.io/tools/icons/) simple SVG icon components
 - [yarn](https://yarnpkg.com/en/) to handle package management **NOTE**: the `resolutions` are used to de-duplicate dependencies from dependencies of dependencies
 - [storybook](https://github.com/storybooks/storybook) to run our components in their own page easily
 - [babel](https://babeljs.io/) with [babel-preset-typescript](https://babeljs.io/docs/en/babel-preset-typescript) to integrate with next.js and add polyfills where required
