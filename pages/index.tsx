@@ -47,7 +47,7 @@ export class IndexPage extends React.PureComponent<IndexPageProps> {
     const { fetchMore } = this.graphql
     const { before, after } = this.props.params
     const context = this.context as AppContextValueType
-    const subReddit = context.url.searchParams.get('subReddit')
+    const subReddit = context.url.searchParams.get('subReddit') || 'vancouver'
     const limit = 20
 
     fetchMore({
@@ -112,7 +112,7 @@ export class IndexPage extends React.PureComponent<IndexPageProps> {
      * @note this could be a redux selector, if we managed it via redux
      */
     const context = this.context as AppContextValueType
-    const subReddit = context.url.searchParams.get('subReddit')
+    const subReddit = context.url.searchParams.get('subReddit') || 'vancouver'
 
     return (
       <>
