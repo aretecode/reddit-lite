@@ -10,16 +10,13 @@ import { EMPTY_OBJ, EMPTY_ARRAY } from '../src/utils/EMPTY'
 import { update } from '../src/redux'
 import { StyledLoadMoreButton, PostList } from '../src/components/PostList'
 import { ReduxStateType, RedditLitePostsGraphQLResponse } from '../src/typings'
+import { init as EMPTY_RESPONSE_INNER } from '../src/redux'
 import RedditPostsQuery from '../src/graphql/Reddit.graphql'
 import {
   fromNewDataToApollo,
   fromFetchMoreToSafeUpdate,
 } from '../src/graphql/transform'
 
-export const EMPTY_RESPONSE_INNER = Object.freeze({
-  params: EMPTY_OBJ,
-  list: EMPTY_ARRAY,
-})
 export const EMPTY_RESPONSE = Object.freeze({
   data: {
     posts: EMPTY_RESPONSE_INNER,
@@ -45,10 +42,9 @@ export class IndexPage extends React.PureComponent<IndexPageProps> {
     console.debug('ready')
 
     const { fetchMore } = this.graphql
-    const { before, after } = this.props.params
+    const { before, after, limit } = this.props.params
     const context = this.context as AppContextValueType
     const subReddit = context.url.searchParams.get('subReddit') || 'vancouver'
-    const limit = 20
 
     fetchMore({
       /**
@@ -113,11 +109,12 @@ export class IndexPage extends React.PureComponent<IndexPageProps> {
      */
     const context = this.context as AppContextValueType
     const subReddit = context.url.searchParams.get('subReddit') || 'vancouver'
+    const { limit } = this.props.params
 
     return (
       <>
         <Query<RedditLitePostsGraphQLResponse>
-          variables={{ limit: 1, subReddit }}
+          variables={{ limit, subReddit }}
           query={RedditPostsQuery}
           // this will update 1x a minute
           pollInterval={60000}
@@ -133,8 +130,9 @@ export class IndexPage extends React.PureComponent<IndexPageProps> {
             const {
               data = EMPTY_OBJ as RedditLitePostsGraphQLResponse,
             } = response
+            const posts = data.posts || EMPTY_OBJ
 
-            return <PostList list={data.posts.list} subReddit={subReddit} />
+            return <PostList list={posts.list} subReddit={subReddit} />
           }}
         </Query>
         <StyledLoadMoreButton onClick={this.handleLoadMore}>

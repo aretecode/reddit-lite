@@ -21,13 +21,13 @@
  */
 import { createStore, Reducer } from 'redux'
 
-const init = {
+export const init = {
   subReddit: 'vancouver',
   list: [],
   params: {
     before: '',
     after: '',
-    limit: 20,
+    limit: 25,
   },
 }
 
