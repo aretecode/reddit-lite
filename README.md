@@ -7,6 +7,11 @@
 
 [![Deploy to now](https://deploy.now.sh/static/button.svg)](https://deploy.now.sh/?repo=https://github.com/aretecode/reddit-lite)
 
+## Usage
+1. to select a subReddit, append `subReddit=NAME_HERE` to the search params (_[example here](https://reddit-lite.aretecode.now.sh/?subReddit=canada)_)
+2. to use a custom graphql endpoint, use `graphql=API_URL_HERE` in the search params (_[example here](https://reddit-lite.aretecode.now.sh/?subReddit=canada&graphql=https://reddit-lite-graphql.now.sh/graphql)_)
+
+
 ## Development
 
 ```bash
@@ -14,6 +19,15 @@ git clone git@github.com:aretecode/reddit-lite.git
 
 yarn install
 yarn dev
+```
+
+#### Storybook
+```bash
+yarn dev:storybook
+```
+#### Tests
+```bash
+yarn test
 ```
 
 ## Requirements/Priorities
