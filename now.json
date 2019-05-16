@@ -27,6 +27,13 @@
       }
     },
     {
+      "src": "/ui/(.*)",
+      "dest": "storybook/$1",
+      "headers": {
+        "cache-control": "max-age=43200, s-maxage=86400"
+      }
+    },
+    {
       "src": "/(.*)",
       "dest": "/$1",
       "headers": {
@@ -38,6 +45,10 @@
     {
       "src": "package.json",
       "use": "@now/next"
+    },
+    {
+      "src": ".storybook/config.js",
+      "use": "now-static-build-storybook"
     }
   ]
 }
