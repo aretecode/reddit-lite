@@ -1,5 +1,7 @@
 /**
  * @see https://github.com/zeit/next.js/blob/master/examples/with-jest/__tests__/index.test.js
+ *
+ * @todo for app tests, can mock Apollo + can mock Redux store...
  */
 import * as React from 'react'
 import { render, waitForElement } from 'react-testing-library'
@@ -15,7 +17,7 @@ describe('app', () => {
         <DefaultPage />
       </InnerApp>
     )
-    const {container, rerender, getByText} = render(view)
+    const { container, rerender, getByText } = render(view)
     rerender(view)
     console.log('[tests] App - waiting')
     await waitForElement(() => getByText('@todo_______________'))

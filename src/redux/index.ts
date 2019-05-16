@@ -77,15 +77,20 @@ const update = (payload: unknown) => {
 
 const WINDOW_REALM = process.browser && (window as any)
 
+/**
+ * process.env.NODE_ENV === 'development'
+ * ^ ignoring this so it deploys with devtools always
+ */
+const IS_DEV = true
 const store = createStore(
   reducer,
-  process.env.NODE_ENV === 'development' &&
+  IS_DEV &&
     process.browser &&
     WINDOW_REALM.__REDUX_DEVTOOLS_EXTENSION__ &&
     WINDOW_REALM.__REDUX_DEVTOOLS_EXTENSION__()
 )
 
-if (process.env.NODE_ENV === 'development' && process.browser) {
+if (IS_DEV && process.browser) {
   WINDOW_REALM.update = update
 }
 
