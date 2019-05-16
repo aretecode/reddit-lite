@@ -11,6 +11,25 @@
 1. to select a subReddit, append `subReddit=NAME_HERE` to the search params (_[example here](https://reddit-lite.aretecode.now.sh/?subReddit=canada)_)
 2. to use a custom graphql endpoint, use `graphql=API_URL_HERE` in the search params (_[example here](https://reddit-lite.aretecode.now.sh/?subReddit=canada&graphql=https://reddit-lite-graphql.now.sh/graphql)_)
 
+### Deployments
+##### Reddit React Lite
+[reddit-lite.aretecode.now.sh](https://reddit-lite.aretecode.now.sh/)
+> for the React code (_with Redux devtools enabled_)
+
+![reddit lite](https://user-images.githubusercontent.com/4022631/57826883-0f5c9b00-775a-11e9-99ae-cd5582993d50.gif)
+
+##### Reddit React Lite (GraphQL)
+- [reddit-lite.aretecode.now.sh/graphql](https://reddit-lite.aretecode.now.sh/graphql) for graphql playground
+- [aretecode/reddit-lite-graphql](https://github.com/aretecode/reddit-graphql) for the code
+
+<img width="1091" alt="Screen Shot 2019-05-15 at 9 38 21 PM" src="https://user-images.githubusercontent.com/4022631/57826875-07046000-775a-11e9-9219-993d2e91c6e7.png">
+
+
+##### Storybook
+- [reddit-lite.aretecode.now.sh/ui/index.html](https://reddit-lite.aretecode.now.sh/ui/index.html?path=/story/post--as-dynamic-variables) for the static storybook deployment
+
+<img width="652" alt="Screen Shot 2019-05-15 at 9 37 54 PM" src="https://user-images.githubusercontent.com/4022631/57826877-0966ba00-775a-11e9-955c-94d5be3f27d6.png">
+
 
 ## Development
 
