@@ -1,0 +1,63 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`LeaderBoard should match export snapshot 1`] = `
+Object {
+  "LeaderBoard": [Function],
+  "StyledLeaderBoard": Object {
+    "$$typeof": Symbol(react.forward_ref),
+    "attrs": Array [],
+    "componentStyle": ComponentStyle {
+      "componentId": "sc-bdVaJa",
+      "isStatic": true,
+      "rules": Array [
+        "
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: sticky;
+  background-color: rgb(66, 173, 240);
+  border-bottom: 1px solid #e9f5fd;
+  height: 50px;
+",
+      ],
+    },
+    "displayName": "styled.header",
+    "foldedComponentIds": Array [],
+    "render": [Function],
+    "styledComponentId": "sc-bdVaJa",
+    "target": "header",
+    "toString": [Function],
+    "warnTooManyClasses": [Function],
+    "withComponent": [Function],
+  },
+  "default": [Function],
+}
+`;
+
+exports[`LeaderBoard should render without errors 1`] = `
+.c0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  position: -webkit-sticky;
+  position: sticky;
+  background-color: rgb(66,173,240);
+  border-bottom: 1px solid #e9f5fd;
+  height: 50px;
+}
+
+<div>
+  <header
+    class="c0"
+  />
+</div>
+`;
