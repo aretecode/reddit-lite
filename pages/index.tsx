@@ -117,7 +117,7 @@ export class IndexPage extends React.PureComponent<IndexPageProps> {
     return (
       <>
         <Query<RedditLitePostsGraphQLResponse>
-          variables={{ limit: 1 }}
+          variables={{ limit: 1, subReddit }}
           query={RedditPostsQuery}
           // this will update 1x a minute
           pollInterval={60000}
