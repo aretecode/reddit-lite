@@ -50,6 +50,7 @@ yarn dev
 
 ## API
 
+- [aretecode/reddit-lite-graphql](https://github.com/aretecode/reddit-graphql) contains the important apollo graphql server around the reddit api
 - [example json response](https://reddit.com/r/vancouver.json) (_add .json to any subreddit_)
 - [reddit - official api](https://www.reddit.com/dev/api/) (_not required... yet_)
 
