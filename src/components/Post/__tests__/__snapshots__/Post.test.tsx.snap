@@ -215,6 +215,18 @@ exports[`Post should render without errors 1`] = `
   margin-left: 0.25rem;
 }
 
+.c13:focus {
+  outline: thin dotted;
+}
+
+.c13:hover {
+  color: #aaa;
+}
+
+.c13:link {
+  -webkit-tap-highlight-color: rgba(102,102,102,0.5);
+}
+
 .c9 {
   margin-left: 0.25rem;
   color: rgb(120,124,126);
@@ -327,7 +339,7 @@ exports[`Post should render without errors 1`] = `
       class="c11"
     >
       <svg
-        aria-labelledby="svg-inline--fa-title-WxAgDwxbUBQP"
+        aria-labelledby="svg-inline--fa-title-2ipqRxMqzRJU"
         class="svg-inline--fa fa-expand fa-w-14 c12"
         data-icon="expand"
         data-prefix="fas"
@@ -336,7 +348,7 @@ exports[`Post should render without errors 1`] = `
         xmlns="http://www.w3.org/2000/svg"
       >
         <title
-          id="svg-inline--fa-title-WxAgDwxbUBQP"
+          id="svg-inline--fa-title-2ipqRxMqzRJU"
         >
           expand icon for description... or link to image
         </title>
@@ -345,8 +357,9 @@ exports[`Post should render without errors 1`] = `
           fill="currentColor"
         />
       </svg>
-      <button
-        class="c13"
+      <a
+        class="c13 "
+        href="undefined"
       >
         <svg
           aria-hidden="true"
@@ -364,7 +377,7 @@ exports[`Post should render without errors 1`] = `
           />
         </svg>
          comments
-      </button>
+      </a>
     </div>
   </article>
 </div>
