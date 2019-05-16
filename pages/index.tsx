@@ -2,46 +2,18 @@
  * @file @todo finish cleaning this up
  */
 import * as React from 'react'
-import styled from 'styled-components'
 import { QueryResult } from 'react-apollo'
 import { Query } from 'react-apollo'
 import { connect } from 'react-redux'
 import { EMPTY_OBJ, EMPTY_ARRAY } from '../src/utils/EMPTY'
 import { update } from '../src/redux'
-import { Post } from '../src/components/Post'
-import { InfiniteScroll } from '../src/components/InfiniteScroll'
+import { StyledLoadMoreButton, PostList } from '../src/components/PostList'
 import { ReduxStateType, RedditLitePostsGraphQLResponse } from '../src/typings'
 import RedditPostsQuery from '../src/graphql/Reddit.graphql'
 import {
   fromNewDataToApollo,
   fromFetchMoreToSafeUpdate,
 } from '../src/graphql/transform'
-
-export const StyledPostList = styled.ul`
-  padding: 1rem;
-  width: 100%;
-  display: grid;
-  grid-gap: 0.5rem;
-  height: max-content;
-
-  li {
-    list-style: none;
-    display: flex;
-    width: 100%;
-  }
-`
-
-export const StyledLoadMoreButton = styled.button`
-  padding: 1rem;
-  background-color: transparent;
-  border: 2px solid var(--color-orange);
-  color: var(--color-orange);
-`
-
-export const StyledMain = styled.main`
-  min-height: 100vh;
-  display: flex;
-`
 
 export const EMPTY_RESPONSE_INNER = Object.freeze({
   params: EMPTY_OBJ,
@@ -65,9 +37,13 @@ export class IndexPage extends React.PureComponent<IndexPageProps> {
   > = EMPTY_RESPONSE as any
 
   handleLoadMore = () => {
-    console.warn('ready')
+    console.debug('ready')
     const { fetchMore } = this.graphql
     const { before, after } = this.props.params
+
+    /**
+     * @todo  get this from context consumer App URL
+     */
     const subReddit = 'vancouver'
     const limit = 20
 
@@ -88,19 +64,21 @@ export class IndexPage extends React.PureComponent<IndexPageProps> {
        */
       updateQuery: (previousResult, options) => {
         const { fetchMoreResult } = options
+        const { setPostsData, list } = this.props
+
         const fetched = fromFetchMoreToSafeUpdate({
           previousResult,
           fetchMoreResult,
         })
         const { newList, newBefore, newAfter } = fetched
-        const mergedList = [...this.props.list, ...newList]
+        const mergedList = [...list, ...newList]
         const newParams = {
           subReddit,
           before: newBefore,
           after: newAfter,
           limit,
         }
-        const newData: ReduxStateType = {
+        const newData: Partial<ReduxStateType> = {
           params: newParams,
           list: mergedList,
         }
@@ -114,7 +92,7 @@ export class IndexPage extends React.PureComponent<IndexPageProps> {
           list: mergedList,
         })
 
-        this.props.setPostsData(newData)
+        setPostsData(newData as Required<ReduxStateType>)
         this.graphql.data = apolloData
 
         return apolloData
@@ -128,12 +106,16 @@ export class IndexPage extends React.PureComponent<IndexPageProps> {
    */
   render() {
     return (
-      <InfiniteScroll onReadyToLoadMore={this.handleLoadMore}>
+      <>
         <Query<RedditLitePostsGraphQLResponse>
           variables={{ limit: 1 }}
           query={RedditPostsQuery}
+          pollInterval={60000}
           onCompleted={completed => {
-            console.log({ completed })
+            /**
+             * could update redux from here
+             */
+            console.debug('completed')
           }}
         >
           {response => {
@@ -141,29 +123,14 @@ export class IndexPage extends React.PureComponent<IndexPageProps> {
             const {
               data = EMPTY_OBJ as RedditLitePostsGraphQLResponse,
             } = response
-            const { list = EMPTY_ARRAY } = data.posts
 
-            return (
-              <>
-                <StyledMain>
-                  <StyledPostList>
-                    {list.map(post => {
-                      return (
-                        <li key={post.id}>
-                          <Post item={post} />
-                        </li>
-                      )
-                    })}
-                  </StyledPostList>
-                </StyledMain>
-              </>
-            )
+            return <PostList list={data.posts.list} subReddit="vancouver" />
           }}
         </Query>
         <StyledLoadMoreButton onClick={this.handleLoadMore}>
           load more
         </StyledLoadMoreButton>
-      </InfiniteScroll>
+      </>
     )
   }
 }
@@ -183,4 +150,5 @@ export default connect(
       return dispatch(update(args))
     },
   })
-)(IndexPage)
+  // redux has typing issues with my frozen defaultProps
+)(IndexPage as any)
