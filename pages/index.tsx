@@ -5,6 +5,7 @@ import * as React from 'react'
 import { QueryResult } from 'react-apollo'
 import { Query } from 'react-apollo'
 import { connect } from 'react-redux'
+import { AppContext, AppContextValueType } from '../src/AppContext'
 import { EMPTY_OBJ, EMPTY_ARRAY } from '../src/utils/EMPTY'
 import { update } from '../src/redux'
 import { StyledLoadMoreButton, PostList } from '../src/components/PostList'
@@ -30,6 +31,10 @@ export type IndexPageProps = ReduxStateType & {
 }
 
 export class IndexPage extends React.PureComponent<IndexPageProps> {
+  /**
+   * useContext(AppContext) with hooks, in fn components
+   */
+  static contextType = AppContext
   static defaultProps = EMPTY_RESPONSE_INNER
   graphql: QueryResult<
     RedditLitePostsGraphQLResponse,
@@ -38,13 +43,11 @@ export class IndexPage extends React.PureComponent<IndexPageProps> {
 
   handleLoadMore = () => {
     console.debug('ready')
+
     const { fetchMore } = this.graphql
     const { before, after } = this.props.params
-
-    /**
-     * @todo  get this from context consumer App URL
-     */
-    const subReddit = 'vancouver'
+    const context = this.context as AppContextValueType
+    const subReddit = context.url.searchParams.get('subReddit')
     const limit = 20
 
     fetchMore({
@@ -83,9 +86,9 @@ export class IndexPage extends React.PureComponent<IndexPageProps> {
           list: mergedList,
         }
         /**
-         * note there is a slight mismatch between redux & apollo
-         * we are nesting in redux so we could select if needed
-         * but in apollo, we keep it flat
+         * @note there is a slight mismatch between redux & apollo
+         *       we are nesting in redux so we could select if needed
+         *       but in apollo, we keep it flat
          */
         const apolloData = fromNewDataToApollo({
           ...newParams,
@@ -105,11 +108,18 @@ export class IndexPage extends React.PureComponent<IndexPageProps> {
    * but this is aimed to be minimal...
    */
   render() {
+    /**
+     * @note this could be a redux selector, if we managed it via redux
+     */
+    const context = this.context as AppContextValueType
+    const subReddit = context.url.searchParams.get('subReddit')
+
     return (
       <>
         <Query<RedditLitePostsGraphQLResponse>
           variables={{ limit: 1 }}
           query={RedditPostsQuery}
+          // this will update 1x a minute
           pollInterval={60000}
           onCompleted={completed => {
             /**
@@ -124,7 +134,7 @@ export class IndexPage extends React.PureComponent<IndexPageProps> {
               data = EMPTY_OBJ as RedditLitePostsGraphQLResponse,
             } = response
 
-            return <PostList list={data.posts.list} subReddit="vancouver" />
+            return <PostList list={data.posts.list} subReddit={subReddit} />
           }}
         </Query>
         <StyledLoadMoreButton onClick={this.handleLoadMore}>
