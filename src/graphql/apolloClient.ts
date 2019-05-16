@@ -4,7 +4,6 @@
  * @see https://github.com/apollographql/apollo-link/issues/83
  * @see https://github.com/github/fetch#sending-cookies
  * @see https://github.com/zeit/next.js/blob/master/examples/with-apollo/lib/init-apollo.js
- * @note https://www.apollographql.com/docs/link/links/state < docs are not accurate for apollo-boost with state link
  */
 import {
   ApolloClient,
@@ -14,12 +13,10 @@ import {
   NormalizedCacheObject,
 } from 'apollo-boost'
 import { InMemoryCache } from 'apollo-boost'
-import { withClientState } from 'apollo-link-state'
 import { onError } from 'apollo-link-error'
 import { GraphQLError } from 'graphql'
 import { isEmpty, isObj } from '../utils/is'
 import { EMPTY_OBJ } from '../utils/EMPTY'
-import { apolloState, typeDefs } from './apolloState'
 
 const IS_BROWSER = process.browser && typeof window === 'object'
 
@@ -121,25 +118,13 @@ export function createInstance(
   const inMemoryCache = new InMemoryCache()
   const cache = inMemoryCache.restore(initialState)
 
-  const stateLink =
-    process.env.NODE_ENV === 'test' &&
-    withClientState({
-      cache,
-      typeDefs,
-      ...apolloState,
-    })
-
   /**
    * @see https://github.com/apollographql/apollo-client/issues/1419
    * @see https://github.com/apollographql/apollo-client/blob/82a846c9591bcff975cc28d3786105b80a49b4ba/src/queries/queryTransform.ts#L30
    * @see https://github.com/apollographql/apollo-client/issues/1913#issuecomment-348359030
    */
   const clientConfig: ApolloClientOptions<any> = {
-    link: ApolloLink.from(
-      [consoleLink, errorLink, stateLink as ApolloLink, httpLink].filter(
-        Boolean
-      )
-    ),
+    link: ApolloLink.from([consoleLink, errorLink, httpLink].filter(Boolean)),
     cache,
     ssrMode: !process.browser,
     ssrForceFetchDelay: process.browser ? 100 : undefined,
