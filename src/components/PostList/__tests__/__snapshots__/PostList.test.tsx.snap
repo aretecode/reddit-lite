@@ -1,0 +1,154 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PostList should match export snapshot 1`] = `
+Object {
+  "PostList": [Function],
+  "StyledLoadMoreButton": Object {
+    "$$typeof": Symbol(react.forward_ref),
+    "attrs": Array [],
+    "componentStyle": ComponentStyle {
+      "componentId": "sc-kgoBCf",
+      "isStatic": true,
+      "rules": Array [
+        "
+  padding: 1rem;
+  background-color: transparent;
+  border: 2px solid var(--color-orange);
+  color: var(--color-orange);
+  margin-left: 1rem;
+  margin-bottom: 1rem;
+",
+      ],
+    },
+    "displayName": "styled.button",
+    "foldedComponentIds": Array [],
+    "render": [Function],
+    "styledComponentId": "sc-kgoBCf",
+    "target": "button",
+    "toString": [Function],
+    "warnTooManyClasses": [Function],
+    "withComponent": [Function],
+  },
+  "StyledMain": Object {
+    "$$typeof": Symbol(react.forward_ref),
+    "attrs": Array [],
+    "componentStyle": ComponentStyle {
+      "componentId": "sc-kGXeez",
+      "isStatic": true,
+      "rules": Array [
+        "
+  display: flex;
+",
+      ],
+    },
+    "displayName": "styled.main",
+    "foldedComponentIds": Array [],
+    "render": [Function],
+    "styledComponentId": "sc-kGXeez",
+    "target": "main",
+    "toString": [Function],
+    "warnTooManyClasses": [Function],
+    "withComponent": [Function],
+  },
+  "StyledPostList": Object {
+    "$$typeof": Symbol(react.forward_ref),
+    "attrs": Array [],
+    "componentStyle": ComponentStyle {
+      "componentId": "sc-chPdSV",
+      "isStatic": true,
+      "rules": Array [
+        "
+  padding: 1rem;
+  width: 100%;
+  display: grid;
+  grid-gap: 0.5rem;
+  height: max-content;
+
+  li {
+    list-style: none;
+    display: flex;
+    width: 100%;
+  }
+",
+      ],
+    },
+    "displayName": "styled.ul",
+    "foldedComponentIds": Array [],
+    "render": [Function],
+    "styledComponentId": "sc-chPdSV",
+    "target": "ul",
+    "toString": [Function],
+    "warnTooManyClasses": [Function],
+    "withComponent": [Function],
+  },
+  "default": [Function],
+}
+`;
+
+exports[`PostList should render without errors 1`] = `
+.c0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  position: -webkit-sticky;
+  position: sticky;
+  background-color: rgb(66,173,240);
+  border-bottom: 1px solid #e9f5fd;
+  height: 50px;
+}
+
+.c2 {
+  padding: 1rem;
+  width: 100%;
+  display: grid;
+  grid-gap: 0.5rem;
+  height: -webkit-max-content;
+  height: -moz-max-content;
+  height: max-content;
+}
+
+.c2 li {
+  list-style: none;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+}
+
+.c1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+<div>
+  <header
+    class="c0"
+  >
+    <h1>
+      r/
+    </h1>
+  </header>
+  <main
+    class="c1"
+  />
+  <main
+    class="c1"
+  >
+    <ul
+      class="c2"
+    />
+  </main>
+</div>
+`;
