@@ -26,7 +26,10 @@ export class AppContextProvider extends React.PureComponent<{
 }> {
   render() {
     const { url = DEFAULT_URL, children } = this.props
-    const contextValue = { url }
+    const contextValue = {
+      // may have rehydrated from a serialized app state
+      url: typeof url === 'string' ? new URL(url) : url,
+    }
     return (
       <AppContext.Provider value={contextValue}>{children}</AppContext.Provider>
     )

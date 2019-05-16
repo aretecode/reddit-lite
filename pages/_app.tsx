@@ -48,7 +48,7 @@ export default class MyApp extends App<{
   url: URL
 }> {
   static async getInitialProps(appContext: NextAppContext) {
-    const { Component, router, ctx } = appContext
+    const { Component, ctx } = appContext
     const url = fromReqToUrl(ctx.req as any)
     const pageProps = {}
 
@@ -64,12 +64,9 @@ export default class MyApp extends App<{
 
       try {
         /**
-         * @note !!! this does not properly ssr if we render `<App>` (even if we pass in apolloClient) !!!
          * @description Run all GraphQL queries
-         * @todo this is really bad @@perf
          * @description ideally we would combine this into a single tree walking
          *              to get other data needed in ssr to rehydrate from
-         * @note this uses old `Context`
          * @see https://github.com/apollographql/react-apollo/blob/master/src/getDataFromTree.ts
          * @see https://github.com/apollographql/react-apollo/blob/master/src/Query.tsx#L164
          */
@@ -79,14 +76,18 @@ export default class MyApp extends App<{
           </InnerApp>
         )
       } catch (error) {
-        // Prevent Apollo Client GraphQL errors from crashing SSR.
-        // Handle them in components via the data.error prop:
-        // https://www.apollographql.com/docs/react/api/react-apollo.html#graphql-query-data-error
+        /**
+         * Prevent Apollo Client GraphQL errors from crashing SSR.
+         * Handle them in components via the data.error prop:
+         * @see https://www.apollographql.com/docs/react/api/react-apollo.html#graphql-query-data-error
+         */
         console.error('Error while running `getDataFromTree`', error)
       }
 
-      // getDataFromTree does not call componentWillUnmount
-      // head side effect therefore need to be cleared manually
+      /**
+       * getDataFromTree does not call componentWillUnmount
+       * head side effect therefore need to be cleared manually
+       */
       Head.rewind()
     } else {
       console.debug('[_app] starting ssr (browser, rehydrate)')
